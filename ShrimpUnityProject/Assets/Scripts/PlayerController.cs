@@ -8,28 +8,32 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     // Start is called before the first frame update
+	public PlayerInput inputMap;
+    [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private float _moveSpeed = 5;
     [SerializeField] private float _jumpForce = 1;
-    [SerializeField] private Rigidbody _rigidbody;
     private Vector2 _moveDir;
     private bool isGrounded;
 
-    void Start()
+	void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        Controls.Init();
     }
 
     private void OnEnable()
-    {
-        Controls.controls.Game.Move.performed += SetMovementDirection;
-        Controls.controls.Game.Jump.performed += Jump;
+	{
+		InputAction move = inputMap.currentActionMap.FindAction("Move");
+		InputAction jump = inputMap.currentActionMap.FindAction("Jump");
+		move.performed += SetMovementDirection;
+		jump.performed += Jump;
     }
 
     private void OnDisable()
-    {
-        Controls.controls.Game.Move.performed -= SetMovementDirection;
-        Controls.controls.Game.Jump.performed -= Jump;
+	{
+		InputAction move = inputMap.currentActionMap.FindAction("Move");
+		InputAction jump = inputMap.currentActionMap.FindAction("Jump");
+		move.performed -= SetMovementDirection;
+        jump.performed -= Jump;
     }
 
     void Update()
