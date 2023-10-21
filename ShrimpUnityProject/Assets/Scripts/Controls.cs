@@ -6,9 +6,12 @@ using UnityEngine.InputSystem;
 public class Controls : MonoBehaviour
 {
     public static PlayerActions controls;
-    public static void Init(PlayerController player)
+    public static void Init()
     {
+        if (controls != null) return;
+
         controls = new PlayerActions();
         controls.Enable();
     }
+
 }

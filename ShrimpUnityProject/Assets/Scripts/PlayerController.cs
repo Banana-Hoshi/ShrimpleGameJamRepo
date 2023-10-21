@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        Controls.Init(this);
+        Controls.Init();
     }
 
     private void OnEnable()
