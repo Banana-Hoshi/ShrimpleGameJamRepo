@@ -157,6 +157,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3af89ccfb95efc54dbfb86dd1d6c7d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particles: {fileID: 4960573505205500409}
+  sharedSmoke: {fileID: 2100000, guid: eaf8ec0bba65df44988b2593c252e409, type: 2}
+  sharedFire: {fileID: 2100000, guid: ad067e79b04d73447b17e193e7c03c4d, type: 2}
 --- !u!114 &2517589184818074430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -867,7 +870,7 @@ Transform:
   m_GameObject: {fileID: 4731027776258351819}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.8, z: -1.7}
+  m_LocalPosition: {x: 0, y: 0.5, z: -1.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1091,7 +1094,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: -1
+        m_ColorSpace: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -1127,7 +1130,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2331,7 +2334,7 @@ ParticleSystem:
     flipU: 0
     flipV: 0
   VelocityModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -2388,7 +2391,7 @@ ParticleSystem:
     y:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -4836,10 +4839,10 @@ ParticleSystem:
     ribbonCount: 1
     shadowBias: 0.5
     worldSpace: 0
-    dieWithParticles: 1
+    dieWithParticles: 0
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
-    inheritParticleColor: 1
+    inheritParticleColor: 0
     generateLightingData: 0
     splitSubEmitterRibbons: 0
     attachRibbonsToTransform: 1
@@ -5617,7 +5620,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: eaf8ec0bba65df44988b2593c252e409, type: 2}
   - {fileID: 2100000, guid: ad067e79b04d73447b17e193e7c03c4d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -5639,7 +5642,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 5
+  m_RenderMode: 4
   m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
