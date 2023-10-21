@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class ParticleCol : MonoBehaviour
+public class PizzaManager : MonoBehaviour
 {
-	public Rigidbody holder;
+	
+
 	void OnParticleCollision(GameObject other) {
-		if (other != holder.gameObject) {
-			Debug.Log("hit!");
+		if (other.transform.parent != transform) {
+			
 		}
 	}
 }
