@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Bike : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	public Rigidbody bod;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	void Update()
+	{
+		
+	}
 }
