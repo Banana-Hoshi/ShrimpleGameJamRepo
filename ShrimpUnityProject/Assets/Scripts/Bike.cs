@@ -32,7 +32,7 @@ public class Bike : MonoBehaviour
 
 	float tiltTimer = -1f;
 	private void Awake() {
-		rb.centerOfMass = transform.position;
+		rb.centerOfMass = Vector3.zero;
 		tiltTimer = 0f;
 		square.color = Color.yellow;
 	}
