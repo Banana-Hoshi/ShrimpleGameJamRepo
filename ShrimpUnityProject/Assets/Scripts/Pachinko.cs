@@ -7,12 +7,15 @@ public class Pachinko : MonoBehaviour
 	public PizzaManager manager;
 	public Bike bike;
 	public Sprite[] toppings;
+	public Rigidbody pizza;
 	//1
 	public List<OnTriggerEnterEvent> jalepenioEvents;
 	//2
 	public List<OnTriggerEnterEvent> mushroomEvents;
 	//3
 	public List<OnTriggerEnterEvent> fishEvents;
+
+	Rigidbody tempPizza;
 
 	private void Awake() {
 		int index = 1;
