@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Bike : MonoBehaviour
 {
-	public GameObject visuals;
 	public Transform axle;
 	public PlayerInput inputMap;
 	public Rigidbody rb;

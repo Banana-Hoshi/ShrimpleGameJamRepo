@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
 			parlour1.pachinko.manager = player.GetComponent<PizzaManager>();
 			player.transform.position = parlour1.spawnPoint.position;
 			player.transform.rotation = parlour1.spawnPoint.rotation;
+			p1Arrow = player.GetComponentInChildren<LookatThing>();
 
 			player.GetComponent<Rigidbody>().isKinematic = true;
 
@@ -59,6 +60,7 @@ public class GameManager : MonoBehaviour
 			parlour2.pachinko.manager = player.GetComponent<PizzaManager>();
 			player.transform.position = parlour2.spawnPoint.position;
 			player.transform.rotation = parlour2.spawnPoint.rotation;
+			p2Arrow = player.GetComponentInChildren<LookatThing>();
 
 			parlour1.pachinko.bike.GetComponent<Rigidbody>().isKinematic = false;
 
@@ -92,7 +94,8 @@ public class GameManager : MonoBehaviour
 
 		current.winner += CheckWin;
 
-
+		p1Arrow.target = current.transform;
+		p2Arrow.target = current.transform;
 	}
 
 	public void Send(List<StayInTriggerCheck> trigger) {

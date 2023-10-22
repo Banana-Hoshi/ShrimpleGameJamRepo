@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class Pachinko : MonoBehaviour
 {
+	public PizzaParlour parlour;
 	public PizzaManager manager;
 	public Bike bike;
 	public Sprite[] toppings;
@@ -41,16 +42,15 @@ public class Pachinko : MonoBehaviour
 		foreach (OnTriggerEnterEvent evnt in fishEvents)
 			evnt.triggered += Check;
 
-		bike.rb.isKinematic = true;
+		bike.transform.position = transform.position + Vector3.up * 100f;
 		bike.enabled = false;
-		bike.visuals.SetActive(false);
 
 		//setup the dropper here
 		tempPizza = Instantiate(pizza, (left.position + right.position) / 2f, Quaternion.identity);
 		tempPizza.transform.localScale = transform.localScale;
 		tempPizza.transform.LookAt(cam.transform);
 		tempPizza.isKinematic = true;
-		cam.gameObject.SetActive(true);
+
 		StartCoroutine(PachinkoInput());
 	}
 
@@ -77,8 +77,8 @@ public class Pachinko : MonoBehaviour
 			evnt.triggered -= Check;
 		
 		bike.enabled = true;
-		bike.rb.isKinematic = false;
-		bike.visuals.SetActive(true);
+		bike.transform.position = parlour.spawnPoint.position;
+		bike.rb.useGravity = true;
 
 		cam.gameObject.SetActive(false);
 	}

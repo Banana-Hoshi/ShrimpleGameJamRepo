@@ -15,6 +15,7 @@ public class PizzaParlour : MonoBehaviour
 	private void Awake() {
 		door = GetComponentInChildren<StayInTriggerCheck>();
 		door.winner += Check;
+		pachinko.parlour = this;
 	}
 
 	void Check(GameObject user) {

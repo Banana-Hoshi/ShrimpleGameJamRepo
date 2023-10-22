@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StayInTriggerCheck : MonoBehaviour
 {
-	Dictionary<GameObject, float> objects = new Dictionary<GameObject, float>();
+	Dictionary<string, float> objects = new Dictionary<string, float>();
 
 	public event System.Action<GameObject> winner;
 	public float winTime = 2f;
@@ -12,25 +12,25 @@ public class StayInTriggerCheck : MonoBehaviour
 	private void OnTriggerEnter(Collider other) {
 		PizzaManager manager = other.attachedRigidbody?.GetComponent<PizzaManager>();
 		if (manager) {
-			if (!objects.ContainsKey(other.attachedRigidbody.gameObject)) {
-				objects.Add(other.attachedRigidbody.gameObject, 0f);
+			if (!objects.ContainsKey(other.attachedRigidbody.name)) {
+				objects.Add(other.attachedRigidbody.name, 0f);
 			}
 		}
 	}
 
 	private void OnTriggerStay(Collider other) {
-		if (objects.ContainsKey(other.attachedRigidbody?.gameObject)) {
-			objects[other.attachedRigidbody.gameObject] += Time.fixedDeltaTime;
-			if (objects[other.attachedRigidbody.gameObject] > winTime) {
+		if (objects.ContainsKey(other.attachedRigidbody?.name)) {
+			objects[other.attachedRigidbody.name] += Time.fixedDeltaTime;
+			if (objects[other.attachedRigidbody.name] > winTime) {
 				winner?.Invoke(other.attachedRigidbody.gameObject);
-				objects.Remove(other.attachedRigidbody.gameObject);
+				objects.Remove(other.attachedRigidbody.name);
 			}
 		}
 	}
 
 	private void OnTriggerExit(Collider other) {
 		if (other.attachedRigidbody)
-			objects.Remove(other.attachedRigidbody.gameObject);
+			objects.Remove(other.attachedRigidbody.name);
 	}
 
 	private void OnDisable() {
