@@ -5,6 +5,7 @@ using UnityEngine;
 public class Pachinko : MonoBehaviour
 {
 	public PizzaManager manager;
+	public Bike bike;
 	//1
 	public List<OnTriggerEnterEvent> jalepenioEvents;
 	//2
