@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Bike : MonoBehaviour
 {
+	public Transform axle;
 	public PlayerInput inputMap;
 	public Rigidbody rb;
 	public float accel = 50f;
@@ -117,9 +118,11 @@ public class Bike : MonoBehaviour
 				rb.velocity += Quaternion.Euler(0f, transform.eulerAngles.y, 0f) * Vector3.forward * (_input.y * accel * Time.fixedDeltaTime);
 				rb.angularVelocity += Vector3.up * (_input.x * rotAccel * Time.fixedDeltaTime);
 			}
+			axle.localRotation = Quaternion.Euler(0f, _input.x * 15f, 0f);
 
 			yield return fixedUp;
 		}
+		axle.localRotation = Quaternion.identity;
 	}
 
 	private void OnEnable() {
