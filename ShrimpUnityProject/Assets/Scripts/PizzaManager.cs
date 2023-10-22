@@ -20,7 +20,6 @@ public class PizzaManager : MonoBehaviour
 	public int ammo = 0;
 	public Image[] ammoSprites;
 	public Image topping;
-	public Sprite toppings;
 
 	PhysicMaterial tireMat;
 	float defaultFriction;
