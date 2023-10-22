@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7749836878914268307}
   - component: {fileID: 8879897866742549319}
   - component: {fileID: 7524411198978859316}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 4875828924501605504}
   - component: {fileID: 5194702971462149482}
   - component: {fileID: 8909740469959979388}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 481
+    m_Bits: 2529
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -339,6 +339,40 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &397356037046116135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4105747899259827634}
+  m_Layer: 6
+  m_Name: Visuals
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4105747899259827634
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397356037046116135}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4413749215845088002}
+  - {fileID: 4071331469669983009}
+  - {fileID: 1812811617283283261}
+  m_Father: {fileID: 4935315208528365973}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &701614789117957170
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,15 +416,13 @@ Transform:
   - {fileID: 7749836878914268307}
   - {fileID: 2562969970014137543}
   - {fileID: 3092224155667911759}
-  - {fileID: 4071331469669983009}
+  - {fileID: 4105747899259827634}
+  - {fileID: 6004800703525267232}
   - {fileID: 8057229904110148380}
   - {fileID: 4287933502548099372}
-  - {fileID: 6004800703525267232}
   - {fileID: 4828508239446307226}
   - {fileID: 1535340585795627558}
-  - {fileID: 1812811617283283261}
   - {fileID: 2910744177999279163}
-  - {fileID: 4413749215845088002}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &5669439246683668951
@@ -432,6 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 840ae64f6632c0545b481bdf7dd9ee37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visuals: {fileID: 397356037046116135}
   axle: {fileID: 2539085349599902369}
   inputMap: {fileID: 6832303978289021394}
   rb: {fileID: 5669439246683668951}
@@ -482,7 +515,7 @@ MonoBehaviour:
   - {fileID: 2075794845940105376}
   - {fileID: 8121003159323082700}
   effect: 2
-  ammo: 16
+  ammo: 0
   ammoSprites:
   - {fileID: 5792761705188607042}
   - {fileID: 3899992227159774385}
@@ -874,7 +907,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2539085349599902369}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HandleParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -909,7 +942,7 @@ GameObject:
   - component: {fileID: 5254004478312388140}
   - component: {fileID: 3688807765440148937}
   - component: {fileID: 5792761705188607042}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: slice (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -982,7 +1015,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6363297232683860663}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Pizza 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1029,7 +1062,7 @@ GameObject:
   - component: {fileID: 6712306121290388637}
   - component: {fileID: 6094935642500948074}
   - component: {fileID: 524001131979226496}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: Virtual Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1143,7 +1176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6004800703525267232}
   - component: {fileID: 802176021467315572}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BikeBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1197,7 +1230,7 @@ GameObject:
   - component: {fileID: 7126816193842069958}
   - component: {fileID: 2577002198365654143}
   - component: {fileID: 6055643513075656582}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: slice (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1273,7 +1306,7 @@ GameObject:
   - component: {fileID: 5448675892299575567}
   - component: {fileID: 8126312303716661971}
   - component: {fileID: 1404704000194351601}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1369,7 +1402,7 @@ GameObject:
   - component: {fileID: 2558630804620544315}
   - component: {fileID: 4384967706098927311}
   - component: {fileID: 6489262144656292258}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: slice (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1499,7 +1532,7 @@ GameObject:
   - component: {fileID: 6160429491494958514}
   - component: {fileID: 6904379591241938948}
   - component: {fileID: 7375704694755046667}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: slice (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1610,7 +1643,7 @@ GameObject:
   - component: {fileID: 4906089949140045097}
   - component: {fileID: 5210336702315069385}
   - component: {fileID: 7395882290437785658}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1706,7 +1739,7 @@ GameObject:
   - component: {fileID: 588187272306682487}
   - component: {fileID: 3981520792603026770}
   - component: {fileID: 2517934065045200905}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FrontWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1791,7 +1824,7 @@ GameObject:
   - component: {fileID: 3312643812006009158}
   - component: {fileID: 3646413747500818110}
   - component: {fileID: 3052228034789550240}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Seat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1875,7 +1908,7 @@ GameObject:
   - component: {fileID: 8011902264293427290}
   - component: {fileID: 3063828231216360289}
   - component: {fileID: 1061869506897364069}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: slice (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2005,7 +2038,7 @@ GameObject:
   - component: {fileID: 7979297798253050999}
   - component: {fileID: 1047906153129547504}
   - component: {fileID: 8517645768579842444}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BackWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2090,7 +2123,7 @@ GameObject:
   - component: {fileID: 2420565565702360282}
   - component: {fileID: 8687961007144197745}
   - component: {fileID: 5210872251112256760}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: slice (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2165,7 +2198,7 @@ GameObject:
   - component: {fileID: 702709565725945557}
   - component: {fileID: 7384126494672009658}
   - component: {fileID: 2162247836630939232}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: slice (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2238,7 +2271,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4071331469669983009}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bike_GJ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2253,7 +2286,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3732242510638758299}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.65}
   m_LocalScale: {x: 1.75, y: 1.75, z: 1.75}
   m_ConstrainProportionsScale: 1
@@ -2265,7 +2298,7 @@ Transform:
   - {fileID: 2539085349599902369}
   - {fileID: 4216753938034004214}
   - {fileID: 3312643812006009158}
-  m_Father: {fileID: 4935315208528365973}
+  m_Father: {fileID: 4105747899259827634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3765333379008839791
 GameObject:
@@ -2278,7 +2311,7 @@ GameObject:
   - component: {fileID: 5847880304608487731}
   - component: {fileID: 7564748168630434345}
   - component: {fileID: 4686550934584375453}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: slice (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2353,7 +2386,7 @@ GameObject:
   - component: {fileID: 6588433700109044051}
   - component: {fileID: 1526866667924514388}
   - component: {fileID: 4380049114744137069}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2430,7 +2463,7 @@ GameObject:
   - component: {fileID: 8521083181051149156}
   - component: {fileID: 6577536989275947024}
   - component: {fileID: 3438616205303969136}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: slice (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2560,7 +2593,7 @@ GameObject:
   - component: {fileID: 4828508239446307226}
   - component: {fileID: 8899356450335863835}
   - component: {fileID: 4503538394197511355}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7391,7 +7424,7 @@ GameObject:
   - component: {fileID: 2376958459099200111}
   - component: {fileID: 7013222589819927299}
   - component: {fileID: 7599742859898965598}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: slice (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7521,7 +7554,7 @@ GameObject:
   - component: {fileID: 4454821409892722247}
   - component: {fileID: 8690374551148559163}
   - component: {fileID: 9121184518890746549}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: slice (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7596,7 +7629,7 @@ GameObject:
   - component: {fileID: 769444673937423366}
   - component: {fileID: 3404886151611095491}
   - component: {fileID: 6433410455269190810}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: slice (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7726,7 +7759,7 @@ GameObject:
   - component: {fileID: 7279310674696875409}
   - component: {fileID: 890614525830680898}
   - component: {fileID: 344816637288891722}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: slice (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7801,7 +7834,7 @@ GameObject:
   - component: {fileID: 2000570973798907307}
   - component: {fileID: 4361863159757167901}
   - component: {fileID: 348703261880676880}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: slice (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7876,7 +7909,7 @@ GameObject:
   - component: {fileID: 5372284292263723222}
   - component: {fileID: 4346346092205655570}
   - component: {fileID: 857573894961269683}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7949,7 +7982,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3002083174816424409}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Pizza 1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7996,7 +8029,7 @@ GameObject:
   - component: {fileID: 5989219309864463370}
   - component: {fileID: 6705312633699919946}
   - component: {fileID: 6622415331548556578}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: MushroomCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8111,7 +8144,7 @@ GameObject:
   - component: {fileID: 4216753938034004214}
   - component: {fileID: 8111454497255327282}
   - component: {fileID: 5340159173831390262}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pedals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8195,13 +8228,13 @@ GameObject:
   - component: {fileID: 2341139928096082636}
   - component: {fileID: 6514402511199320903}
   - component: {fileID: 8716265057549640155}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2341139928096082636
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8271,7 +8304,7 @@ GameObject:
   - component: {fileID: 6771050308354783049}
   - component: {fileID: 7049456931799966300}
   - component: {fileID: 3899992227159774385}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: slice (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8401,7 +8434,7 @@ GameObject:
   - component: {fileID: 1174545989052589025}
   - component: {fileID: 4962602876168662476}
   - component: {fileID: 219899565031937172}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8482,7 +8515,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1433054312326384520}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Slice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8516,7 +8549,7 @@ GameObject:
   - component: {fileID: 379710958556448102}
   - component: {fileID: 7669624041791930850}
   - component: {fileID: 3669839380196813925}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HandleBars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8656,7 +8689,7 @@ GameObject:
   - component: {fileID: 8589435755494002806}
   - component: {fileID: 6039655896746797250}
   - component: {fileID: 722620336411472776}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: slice (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8731,7 +8764,7 @@ GameObject:
   - component: {fileID: 6877277186924302907}
   - component: {fileID: 967648405073143480}
   - component: {fileID: 5342163648727088053}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8845,7 +8878,7 @@ GameObject:
   - component: {fileID: 7581510023344390594}
   - component: {fileID: 4360635419223150133}
   - component: {fileID: 2289705094926935339}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BikeShelf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8928,7 +8961,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4413749215845088002}
   - component: {fileID: 7446264038129812415}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8949,7 +8982,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1433054312326384520}
-  m_Father: {fileID: 4935315208528365973}
+  m_Father: {fileID: 4105747899259827634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7446264038129812415
 MonoBehaviour:
@@ -8976,7 +9009,7 @@ GameObject:
   - component: {fileID: 1334796095810561480}
   - component: {fileID: 5483959123276055458}
   - component: {fileID: 5957015018965130657}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: TipJar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9177,10 +9210,35 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6745890552807473630, guid: 717bfc7266600f988bbab3fd51de975f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -2231964055154420124, guid: 717bfc7266600f988bbab3fd51de975f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 717bfc7266600f988bbab3fd51de975f,
         type: 3}
       propertyPath: m_Name
       value: Pizza slice
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 717bfc7266600f988bbab3fd51de975f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160897638758934445, guid: 717bfc7266600f988bbab3fd51de975f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4684426443903694303, guid: 717bfc7266600f988bbab3fd51de975f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9199,7 +9257,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4935315208528365973}
+    m_TransformParent: {fileID: 4105747899259827634}
     m_Modifications:
     - target: {fileID: 271269015544091499, guid: 7747ae99071df8740b83cb323ff06d49,
         type: 3}

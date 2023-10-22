@@ -41,13 +41,16 @@ public class Pachinko : MonoBehaviour
 		foreach (OnTriggerEnterEvent evnt in fishEvents)
 			evnt.triggered += Check;
 
-		bike.enabled = false;
 		bike.rb.isKinematic = true;
+		bike.enabled = false;
+		bike.visuals.SetActive(false);
 
 		//setup the dropper here
-		tempPizza = Instantiate(pizza, (left.position - right.position) / 2f, Quaternion.identity);
+		tempPizza = Instantiate(pizza, (left.position + right.position) / 2f, Quaternion.identity);
 		tempPizza.transform.localScale = transform.localScale;
+		tempPizza.transform.LookAt(cam.transform);
 		tempPizza.isKinematic = true;
+		cam.gameObject.SetActive(true);
 		StartCoroutine(PachinkoInput());
 	}
 
@@ -61,7 +64,7 @@ public class Pachinko : MonoBehaviour
 			manager.topping.color = Color.clear;
 		}
 
-		manager.SetAmmo(8);
+		manager.AddAmmo(8);
 		CloseMachine();
 	}
 
@@ -75,6 +78,9 @@ public class Pachinko : MonoBehaviour
 		
 		bike.enabled = true;
 		bike.rb.isKinematic = false;
+		bike.visuals.SetActive(true);
+
+		cam.gameObject.SetActive(false);
 	}
 
 	IEnumerator PachinkoInput() {
@@ -86,7 +92,7 @@ public class Pachinko : MonoBehaviour
 				target = target == right ? left : right;
 			}
 
-			if (shoot.IsPressed()) {
+			if (shoot.triggered) {
 				tempPizza.isKinematic = false;
 				break;
 			}

@@ -10,25 +10,27 @@ public class StayInTriggerCheck : MonoBehaviour
 	public float winTime = 2f;
 
 	private void OnTriggerEnter(Collider other) {
-		PizzaManager manager = other.GetComponent<PizzaManager>();
+		PizzaManager manager = other.attachedRigidbody?.GetComponent<PizzaManager>();
 		if (manager) {
-			if (!objects.ContainsKey(other.gameObject)) {
-				objects.Add(other.gameObject, 0f);
+			if (!objects.ContainsKey(other.attachedRigidbody.gameObject)) {
+				objects.Add(other.attachedRigidbody.gameObject, 0f);
 			}
 		}
 	}
 
 	private void OnTriggerStay(Collider other) {
-		if (objects.ContainsKey(other.gameObject)) {
-			objects[other.gameObject] += Time.fixedDeltaTime;
-			if (objects[other.gameObject] > winTime) {
-				winner?.Invoke(other.gameObject);
+		if (objects.ContainsKey(other.attachedRigidbody?.gameObject)) {
+			objects[other.attachedRigidbody.gameObject] += Time.fixedDeltaTime;
+			if (objects[other.attachedRigidbody.gameObject] > winTime) {
+				winner?.Invoke(other.attachedRigidbody.gameObject);
+				objects.Remove(other.attachedRigidbody.gameObject);
 			}
 		}
 	}
 
 	private void OnTriggerExit(Collider other) {
-		objects.Remove(other.gameObject);
+		if (other.attachedRigidbody)
+			objects.Remove(other.attachedRigidbody.gameObject);
 	}
 
 	private void OnDisable() {

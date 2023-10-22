@@ -72,6 +72,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pachinko: {fileID: 3120651751744623460}
   spawnPoint: {fileID: 8592561211982466238}
+  manager: {fileID: 0}
+  score: 0
+  multiplier: 100
 --- !u!1 &1426794485686026370
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d8e036db68cac4cae621b87905ddcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winTime: 2
+  winTime: 5
 --- !u!1001 &2422985141297364795
 PrefabInstance:
   m_ObjectHideFlags: 0

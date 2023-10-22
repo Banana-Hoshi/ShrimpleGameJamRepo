@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4917507099994616761}
   - component: {fileID: 7651241218264142204}
   - component: {fileID: 3317622076393164784}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pizza
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.15
+  m_Radius: 0.25
   m_Center: {x: 0, y: 0, z: -0.00000010971778}
 --- !u!54 &3317622076393164784
 Rigidbody:
@@ -440,9 +440,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7855287682784008106}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.003, z: -0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 170, y: 170, z: 170}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4266175889475635462}

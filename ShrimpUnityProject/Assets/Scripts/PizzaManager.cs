@@ -69,6 +69,10 @@ public class PizzaManager : MonoBehaviour
         //do other things
     }
 
+	public void AddAmmo(int amt) {
+		SetAmmo(Mathf.Min(ammo + amt, ammoSprites.Length));
+	}
+
     public void SetAmmo(int amt)
     {
         int newAmmo = Mathf.Max(amt, 0);

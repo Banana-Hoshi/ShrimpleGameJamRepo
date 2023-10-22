@@ -24,12 +24,8 @@ public class PizzaParlour : MonoBehaviour
 		}
 	}
 
-	public void AddScore(int useless = 0) {
-		//calculate based on current ammo
-		if (pachinko.manager.ammo > 0) {
-			score += pachinko.manager.ammo * multiplier;
-			pachinko.manager.SetAmmo(0);
-			manager.LoadRound();
-		}
+	public void AddScore(int amt) {
+		//calculated based on current ammo
+		score += amt * multiplier;
 	}
 }

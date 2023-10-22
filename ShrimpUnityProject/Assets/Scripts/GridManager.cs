@@ -39,20 +39,20 @@ public class GridManager : MonoBehaviour
     public void GenerateBuildings()
     {
         ChooseOptionalGridSpaces();
-		List<OnTriggerEnterEvent> triggers = new List<OnTriggerEnterEvent>();
+		List<StayInTriggerCheck> triggers = new List<StayInTriggerCheck>();
         foreach (var tile in gridSpaces)
         {
             GameObject obj = Instantiate(buildingList[Random.Range(0, buildingList.Length)], tile.transform);
             obj.transform.localRotation = GetAngle(obj.transform.position);
 
-			triggers.Add(obj.GetComponentInChildren<OnTriggerEnterEvent>());
+			triggers.Add(obj.GetComponentInChildren<StayInTriggerCheck>());
         }
         foreach (var tile in optionalGridSpaces)
         {
             GameObject obj = Instantiate(buildingList[Random.Range(0, buildingList.Length)], tile.transform);
             obj.transform.localRotation = GetAngle(obj.transform.position);
 
-			triggers.Add(obj.GetComponentInChildren<OnTriggerEnterEvent>());
+			triggers.Add(obj.GetComponentInChildren<StayInTriggerCheck>());
         }
 
 		manager.Send(triggers);

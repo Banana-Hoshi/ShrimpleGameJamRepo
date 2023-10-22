@@ -12,9 +12,9 @@ public class GameManager : MonoBehaviour
 	public Camera cam;
 	public LookatThing p1Arrow;
 	public LookatThing p2Arrow;
-	public List<OnTriggerEnterEvent> triggers;
+	public List<StayInTriggerCheck> triggers;
 	public int numberOfRounds = 5;
-	OnTriggerEnterEvent current = null;
+	StayInTriggerCheck current = null;
 
 
 	int player1Layer;
@@ -85,17 +85,32 @@ public class GameManager : MonoBehaviour
 		}
 
 		if (current) {
-			current.triggered -= parlour1.AddScore;
-			current.triggered -= parlour2.AddScore;
+			current.winner -= CheckWin;
 		}
 
 		current = triggers[Random.Range(0, triggers.Count)];
 
-		current.triggered += parlour1.AddScore;
-		current.triggered += parlour2.AddScore;
+		current.winner += CheckWin;
+
+
 	}
 
-	public void Send(List<OnTriggerEnterEvent> trigger) {
+	public void Send(List<StayInTriggerCheck> trigger) {
 		triggers = trigger;
+	}
+
+	public void CheckWin(GameObject winner) {
+		PizzaManager manager = winner.GetComponent<PizzaManager>();
+		if (manager && manager.ammo > 0) {
+			if (parlour1.pachinko.manager == manager) {
+				parlour1.AddScore(manager.ammo);
+				manager.SetAmmo(0);
+			}
+			else {
+				parlour2.AddScore(manager.ammo);
+				manager.SetAmmo(0);
+			}
+			LoadRound();
+		}
 	}
 }
