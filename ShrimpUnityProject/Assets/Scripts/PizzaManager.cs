@@ -1,20 +1,84 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PizzaManager : MonoBehaviour
 {
+	public PlayerInput input;
 	public Bike bike;
+	public float shootDelay = 5f;
+	public Transform shootPoint;
 	public float effectTime = 10f;
-	public GameObject projectile;
+	public PizzaProjectile projectile;
 	public ParticleSystem particles;
 	public Material sharedSmoke;
 	public Material sharedFire;
+	public List<Collider> tires;
+	public int effect;
+	public int ammo = 0;
+
+	PhysicMaterial tireMat;
+	float defaultFriction;
+	float defaultFriction2;
+	float delayTime = -1f;
+
+	/*
 	void OnParticleCollision(GameObject other) {
 		if (other != particles.gameObject) {
 			
+		}
+	}*/
+
+	public void Hit(int damage) {
+		SetAmmo(ammo - damage);
+	}
+
+	void Shoot(InputAction.CallbackContext ctx) {
+		//do thing
+		if (ammo == 0 || delayTime > 0f)
+			return;
+
+		PizzaProjectile obj = Instantiate(projectile, shootPoint.position, shootPoint.rotation);
+
+		obj.Shoot(this, transform.forward, effect);
+
+		SetAmmo(ammo - 1);
+
+		delayTime = shootDelay;
+		StartCoroutine(DelayedFunc(shootDelay, Reload));
+	}
+
+	void Reload() {
+		delayTime = 0f;
+		//do other things
+	}
+
+	public void SetAmmo(int amt) {
+		ammo = Mathf.Max(amt, 0);
+		//do visual changes here
+	}
+
+	private void Start() {
+		tireMat = tires[0].material;
+		foreach(Collider col in tires) {
+			col.sharedMaterial = tireMat;
+		}
+		defaultFriction = tireMat.dynamicFriction;
+		defaultFriction2 = tireMat.staticFriction;
+	}
+
+	public void Effect(int effect) {
+		switch (effect) {
+		case 1:
+			SetJalepenio();
+			break;
+		case 2:
+			SetMushroom();
+			break;
+		case 3:
+			SetFish();
+			break;
 		}
 	}
 
@@ -32,12 +96,41 @@ public class PizzaManager : MonoBehaviour
 		main.startLifetime = 1f;
 	}
 
-	private void Start() {
-		
+	public void SetMushroom() {
+		bike.SetMushroom(effectTime);
+		//do visual effects here
+	}
+
+	public void SetFish() {
+		tireMat.dynamicFriction = 0f;
+		tireMat.staticFriction = 0f;
+		bike.SetFish(effectTime);
+		StartCoroutine(DelayedFunc(effectTime, RemoveFish));
+	}
+
+	public void RemoveFish() {
+		tireMat.dynamicFriction = defaultFriction;
+		tireMat.staticFriction = defaultFriction2;
 	}
 
 	IEnumerator DelayedFunc(float time, System.Action action) {
 		yield return new WaitForSeconds(time);
 		action.Invoke();
+	}
+
+	void OneHit() {
+		Hit(1);
+	}
+
+	private void OnEnable() {
+		InputAction shoot = input.currentActionMap.FindAction("Shoot");
+		shoot.started += Shoot;
+		bike.tooMuchTilt += OneHit;
+	}
+
+	private void OnDisable() {
+		InputAction shoot = input.currentActionMap.FindAction("Shoot");
+		shoot.started -= Shoot;
+		bike.tooMuchTilt -= OneHit;
 	}
 }

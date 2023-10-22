@@ -55,6 +55,37 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &897789271838025820
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4787480749990196004}
+  m_Layer: 6
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4787480749990196004
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897789271838025820}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.17, z: 3.24}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5947305401393310142}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1065947971443034668
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,6 +124,7 @@ Transform:
   - {fileID: 613004297596964951}
   - {fileID: 8337276270037191809}
   - {fileID: 7259137144510957249}
+  - {fileID: 4787480749990196004}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &4894476484125198996
@@ -157,11 +189,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3af89ccfb95efc54dbfb86dd1d6c7d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  input: {fileID: 2517589184818074430}
   bike: {fileID: 8536686369042815271}
-  effectTime: 10
+  shootDelay: 5
+  shootPoint: {fileID: 4787480749990196004}
+  effectTime: 15
+  projectile: {fileID: 8873585313729172665, guid: 9541473be87ea5342bf12f5675090920,
+    type: 3}
   particles: {fileID: 4960573505205500409}
   sharedSmoke: {fileID: 2100000, guid: eaf8ec0bba65df44988b2593c252e409, type: 2}
   sharedFire: {fileID: 2100000, guid: ad067e79b04d73447b17e193e7c03c4d, type: 2}
+  tires:
+  - {fileID: 8265168952525174836}
+  - {fileID: 976692362757237588}
+  - {fileID: 4034396554387849772}
+  - {fileID: 6312670790385318404}
+  - {fileID: 6737449822911598277}
+  - {fileID: 2702614347596466139}
+  - {fileID: 2319425036024870858}
+  - {fileID: 255087103949554827}
+  effect: 2
+  ammo: 8
 --- !u!114 &2517589184818074430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5902,13 +5950,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7993637114394475569}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13137409, y: -0, z: -0, w: 0.99133295}
-  m_LocalPosition: {x: 0, y: 6.28, z: -6.77}
+  m_LocalRotation: {x: 0.2636808, y: -0, z: -0, w: 0.96461004}
+  m_LocalPosition: {x: 0, y: 9.76, z: -9.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5947305401393310142}
-  m_LocalEulerAnglesHint: {x: 15.098, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30.577, y: 0, z: 0}
 --- !u!20 &6012786445642983105
 Camera:
   m_ObjectHideFlags: 0

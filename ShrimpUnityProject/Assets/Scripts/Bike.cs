@@ -67,7 +67,9 @@ public class Bike : MonoBehaviour
 
 		//side tilt
 		tilt = Vector3.SignedAngle(Vector3.up, transform.up, transform.forward);
-		if (Mathf.Abs(tilt) > 2f) {
+		if (fishModeTimer > 0f)
+				rb.AddRelativeTorque((Vector3.forward * -tilt).normalized * fixForce * 0.1f);
+		else if (Mathf.Abs(tilt) > 2f) {
 			rb.AddRelativeTorque((Vector3.forward * -tilt).normalized * fixForce);
 			rb.AddTorque(Vector3.up * tilt);
 		}
@@ -106,6 +108,10 @@ public class Bike : MonoBehaviour
 				rb.velocity += Quaternion.Euler(0f, transform.eulerAngles.y, 0f) * Vector3.forward * (accel * Time.fixedDeltaTime);
 				if (_input.x > -10000f)
 					rb.angularVelocity += Vector3.up * (_input.x * rotAccel * 0.5f * Time.fixedDeltaTime);
+			}
+			else if (fishModeTimer > 0f) {
+				rb.velocity += Quaternion.Euler(0f, transform.eulerAngles.y, 0f) * Vector3.forward * (_input.y * accel * 0.5f * Time.fixedDeltaTime);
+				rb.angularVelocity += Vector3.up * (_input.x * rotAccel * 0.1f * Time.fixedDeltaTime);
 			}
 			else {
 				rb.velocity += Quaternion.Euler(0f, transform.eulerAngles.y, 0f) * Vector3.forward * (_input.y * accel * Time.fixedDeltaTime);
