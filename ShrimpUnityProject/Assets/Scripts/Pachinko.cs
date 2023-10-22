@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Pachinko : MonoBehaviour
 {
 	public PizzaManager manager;
 	public Bike bike;
 	public Sprite[] toppings;
+	public Rigidbody pizza;
+	public Transform left, right;
+	public CinemachineVirtualCamera cam;
 	//1
 	public List<OnTriggerEnterEvent> jalepenioEvents;
 	//2
 	public List<OnTriggerEnterEvent> mushroomEvents;
 	//3
 	public List<OnTriggerEnterEvent> fishEvents;
+
+	Rigidbody tempPizza;
 
 	private void Awake() {
 		int index = 1;
@@ -34,7 +41,13 @@ public class Pachinko : MonoBehaviour
 		foreach (OnTriggerEnterEvent evnt in fishEvents)
 			evnt.triggered += Check;
 
+		bike.enabled = false;
+		bike.rb.isKinematic = true;
+
 		//setup the dropper here
+		tempPizza = Instantiate(pizza, (left.position - right.position) / 2f, Quaternion.identity);
+		tempPizza.transform.localScale = transform.localScale;
+		tempPizza.isKinematic = true;
 		StartCoroutine(PachinkoInput());
 	}
 
@@ -59,12 +72,24 @@ public class Pachinko : MonoBehaviour
 			evnt.triggered -= Check;
 		foreach (OnTriggerEnterEvent evnt in fishEvents)
 			evnt.triggered -= Check;
+		
+		bike.enabled = true;
+		bike.rb.isKinematic = false;
 	}
 
 	IEnumerator PachinkoInput() {
+		InputAction shoot = bike.inputMap.currentActionMap.FindAction("Shoot");
+		Transform target = right;
 		while (true) {
-			
+			tempPizza.position = Vector3.MoveTowards(tempPizza.position, target.position, Random.Range(0f, 5f) * Time.deltaTime);
+			if (tempPizza.position == target.position) {
+				target = target == right ? left : right;
+			}
 
+			if (shoot.IsPressed()) {
+				tempPizza.isKinematic = false;
+				break;
+			}
 			yield return null;
 		}
 	}

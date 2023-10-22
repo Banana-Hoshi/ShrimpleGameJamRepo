@@ -11,6 +11,7 @@ public class GridManager : MonoBehaviour
     public GameObject[] buildingList;
     public float distance = 25.2f;
     public LayerMask mask;
+	public GameManager manager;
 
     private void Start()
     {
@@ -38,16 +39,23 @@ public class GridManager : MonoBehaviour
     public void GenerateBuildings()
     {
         ChooseOptionalGridSpaces();
+		List<OnTriggerEnterEvent> triggers = new List<OnTriggerEnterEvent>();
         foreach (var tile in gridSpaces)
         {
             GameObject obj = Instantiate(buildingList[Random.Range(0, buildingList.Length)], tile.transform);
             obj.transform.localRotation = GetAngle(obj.transform.position);
+
+			triggers.Add(obj.GetComponentInChildren<OnTriggerEnterEvent>());
         }
         foreach (var tile in optionalGridSpaces)
         {
             GameObject obj = Instantiate(buildingList[Random.Range(0, buildingList.Length)], tile.transform);
             obj.transform.localRotation = GetAngle(obj.transform.position);
+
+			triggers.Add(obj.GetComponentInChildren<OnTriggerEnterEvent>());
         }
+
+		manager.Send(triggers);
     }
 
     Quaternion GetAngle(Vector3 position)

@@ -17,6 +17,9 @@ public class Bike : MonoBehaviour
 	public float fixForce = 5f;
 	public float maxTilt = 30f;
 
+	public Transform[] spinyThings;
+	public float spinySpeed = 5f;
+
 	public float tiltBadAngle = 30f;
 	public float tiltBadTimer = 2f;
 	public event Action tooMuchTilt;
@@ -69,6 +72,11 @@ public class Bike : MonoBehaviour
 
 		rb.velocity = new Vector3(direction.x, 0f, direction.y) + Vector3.up * rb.velocity.y;
 
+		tilt = direction.magnitude;
+		foreach (Transform trans in spinyThings) {
+			trans.Rotate(Vector3.right, tilt * spinySpeed * Time.fixedDeltaTime, Space.Self);
+		}
+
 		//side tilt
 		tilt = Vector3.SignedAngle(Vector3.up, transform.up, transform.forward);
 		if (fishModeTimer > 0f)
@@ -108,6 +116,7 @@ public class Bike : MonoBehaviour
 
 	WaitForFixedUpdate fixedUp = new WaitForFixedUpdate();
 	IEnumerator Move() {
+		Vector3 euler = axle.localRotation.eulerAngles;
 		while (_input.x > -10000f || jalepenioModeTimer > 0f) {
 			if (jalepenioModeTimer > 0f) {
 				rb.velocity += Quaternion.Euler(0f, transform.eulerAngles.y, 0f) * Vector3.forward * (accel * Time.fixedDeltaTime);
@@ -122,11 +131,11 @@ public class Bike : MonoBehaviour
 				rb.velocity += Quaternion.Euler(0f, transform.eulerAngles.y, 0f) * Vector3.forward * (_input.y * accel * Time.fixedDeltaTime);
 				rb.angularVelocity += Vector3.up * (_input.x * rotAccel * Time.fixedDeltaTime);
 			}
-			axle.localRotation = Quaternion.Euler(0f, _input.x * 15f, 0f);
+			axle.localRotation = Quaternion.Euler(euler.x, euler.y + _input.x * 15f, euler.z);
 
 			yield return fixedUp;
 		}
-		axle.localRotation = Quaternion.identity;
+		axle.localRotation = Quaternion.Euler(euler);
 	}
 
 	private void OnEnable() {
