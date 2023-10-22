@@ -14,4 +14,9 @@ public class Main_Menu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void SecretLevel()
+    {
+        SceneManager.LoadSceneAsync("Secret");    
+    }
 }
