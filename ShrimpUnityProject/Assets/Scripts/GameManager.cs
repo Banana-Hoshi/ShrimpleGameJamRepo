@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
 			player.transform.position = parlour1.spawnPoint.position;
 			player.transform.rotation = parlour1.spawnPoint.rotation;
 			p1Arrow = player.GetComponentInChildren<LookatThing>();
+			parlour1.text = player.GetComponentInChildren<TMPro.TMP_Text>();
 
 			player.GetComponent<Rigidbody>().isKinematic = true;
 
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviour
 			player.transform.position = parlour2.spawnPoint.position;
 			player.transform.rotation = parlour2.spawnPoint.rotation;
 			p2Arrow = player.GetComponentInChildren<LookatThing>();
+			parlour2.text = player.GetComponentInChildren<TMPro.TMP_Text>();
 
 			parlour1.pachinko.bike.GetComponent<Rigidbody>().isKinematic = false;
 

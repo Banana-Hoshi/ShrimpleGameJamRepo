@@ -80,6 +80,9 @@ public class Pachinko : MonoBehaviour
 		foreach (OnTriggerEnterEvent evnt in fishEvents)
 			evnt.triggered -= Check;
 		
+		Destroy(tempPizza.gameObject);
+		tempPizza = null;
+
 		bike.enabled = true;
 		bike.transform.position = parlour.spawnPoint.position;
 		bike.rb.useGravity = true;
