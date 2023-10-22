@@ -5,6 +5,7 @@ using UnityEngine;
 public class PizzaParlour : MonoBehaviour
 {
 	public Pachinko pachinko;
+	public Transform spawnPoint;
 	StayInTriggerCheck door;
 	private void Awake() {
 		door = GetComponentInChildren<StayInTriggerCheck>();
