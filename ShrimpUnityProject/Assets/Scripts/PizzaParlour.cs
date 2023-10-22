@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class PizzaParlour : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PizzaParlour : MonoBehaviour
 	public Transform spawnPoint;
 	StayInTriggerCheck door;
 	public GameManager manager;
+	public TMPro.TMP_Text text;
 
 	public int score = 0;
 	public int multiplier = 100;
@@ -28,5 +30,6 @@ public class PizzaParlour : MonoBehaviour
 	public void AddScore(int amt) {
 		//calculated based on current ammo
 		score += amt * multiplier;
+		text.text = "Tip Jar: $" + score;
 	}
 }
