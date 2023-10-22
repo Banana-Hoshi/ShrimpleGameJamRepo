@@ -42,8 +42,12 @@ public class Pachinko : MonoBehaviour
 		foreach (OnTriggerEnterEvent evnt in fishEvents)
 			evnt.triggered += Check;
 
-		bike.transform.position = transform.position + Vector3.up * 100f;
 		bike.enabled = false;
+		bike.transform.position = parlour.transform.position;
+		bike.rb.useGravity = false;
+		bike.rb.velocity = Vector3.zero;
+
+		cam.gameObject.SetActive(true);
 
 		//setup the dropper here
 		tempPizza = Instantiate(pizza, (left.position + right.position) / 2f, Quaternion.identity);

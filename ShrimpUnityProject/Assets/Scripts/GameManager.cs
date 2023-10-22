@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 	public Camera cam;
 	public LookatThing p1Arrow;
 	public LookatThing p2Arrow;
+	public Transform houseEffect;
 	public List<StayInTriggerCheck> triggers;
 	public int numberOfRounds = 5;
 	StayInTriggerCheck current = null;
@@ -96,6 +97,7 @@ public class GameManager : MonoBehaviour
 
 		p1Arrow.target = current.transform;
 		p2Arrow.target = current.transform;
+		houseEffect.position = current.transform.position;
 	}
 
 	public void Send(List<StayInTriggerCheck> trigger) {
