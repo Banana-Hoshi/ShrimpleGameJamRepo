@@ -9,6 +9,7 @@ public class Bike : MonoBehaviour
 	public Transform axle;
 	public PlayerInput inputMap;
 	public Rigidbody rb;
+	public Transform[] spinyThings;
 	public float accel = 50f;
 	public float maxSpeed = 50f;
 	public float sideDrag = 10f;
@@ -68,6 +69,11 @@ public class Bike : MonoBehaviour
 		}
 
 		rb.velocity = new Vector3(direction.x, 0f, direction.y) + Vector3.up * rb.velocity.y;
+
+		tilt = direction.magnitude;
+		foreach (Transform trans in spinyThings) {
+			trans.Rotate(Vector3.right, tilt * Time.fixedDeltaTime, Space.Self);
+		}
 
 		//side tilt
 		tilt = Vector3.SignedAngle(Vector3.up, transform.up, transform.forward);

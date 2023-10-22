@@ -12,10 +12,9 @@ public class PizzaParlour : MonoBehaviour
 	}
 
 	void Check(GameObject user) {
-		if (pachinko && user == pachinko.bike.gameObject) {
+		if (pachinko && user == pachinko.bike.gameObject && pachinko.manager.ammo < 16) {
 			//start pachinko
 			pachinko.StartMachine();
-			pachinko.bike.enabled = false;
 		}
 	}
 }
