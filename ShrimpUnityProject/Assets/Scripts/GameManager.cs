@@ -90,9 +90,9 @@ public class GameManager : MonoBehaviour
 		}
 
 		current = triggers[Random.Range(0, triggers.Count)];
-		
-		current.triggered -= parlour1.AddScore;
-		current.triggered -= parlour2.AddScore;
+
+		current.triggered += parlour1.AddScore;
+		current.triggered += parlour2.AddScore;
 	}
 
 	public void Send(List<OnTriggerEnterEvent> trigger) {

@@ -2048,6 +2048,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 4192052680099203067, guid: 2c8bb12b71d611947afe9cc3caa1efc2,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 375479729}
     - target: {fileID: 4800804557237203463, guid: 2c8bb12b71d611947afe9cc3caa1efc2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4439,6 +4444,7 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 256
+  manager: {fileID: 375479729}
 --- !u!4 &317461387
 Transform:
   m_ObjectHideFlags: 0
@@ -4985,7 +4991,11 @@ MonoBehaviour:
   inputManager: {fileID: 375479727}
   parlour1: {fileID: 360784467}
   parlour2: {fileID: 2118479364}
-  cam: {fileID: 0}
+  cam: {fileID: 438003030}
+  p1Arrow: {fileID: 0}
+  p2Arrow: {fileID: 0}
+  triggers: []
+  numberOfRounds: 5
 --- !u!1 &379722944
 GameObject:
   m_ObjectHideFlags: 0
@@ -28020,6 +28030,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4192052680099203067, guid: 2c8bb12b71d611947afe9cc3caa1efc2,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 375479729}
     - target: {fileID: 4800804557237203463, guid: 2c8bb12b71d611947afe9cc3caa1efc2,
         type: 3}
       propertyPath: m_LocalPosition.x
