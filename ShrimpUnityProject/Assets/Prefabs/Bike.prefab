@@ -157,6 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3af89ccfb95efc54dbfb86dd1d6c7d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bike: {fileID: 8536686369042815271}
+  effectTime: 10
   particles: {fileID: 4960573505205500409}
   sharedSmoke: {fileID: 2100000, guid: eaf8ec0bba65df44988b2593c252e409, type: 2}
   sharedFire: {fileID: 2100000, guid: ad067e79b04d73447b17e193e7c03c4d, type: 2}
@@ -194,7 +196,7 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: f62f360c-bab3-41fc-9bf5-e99b888af39b
     m_ActionName: Game/Jump[/Keyboard/space]
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Game
   m_SplitScreenIndex: -1
