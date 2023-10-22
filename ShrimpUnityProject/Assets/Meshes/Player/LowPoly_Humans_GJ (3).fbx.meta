@@ -1,9 +1,44 @@
 fileFormatVersion: 2
-guid: 2df1d2c62bdaa6848b66fd8cff3832aa
+guid: 75371a19ea83d6748bcb963a46bc1a32
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Boots
+    second: {fileID: 2100000, guid: 371137833ecc4614bba928371d16d998, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Crevice
+    second: {fileID: 2100000, guid: 64cfdd3cfb4d6b44493ae453ccd36c71, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hat
+    second: {fileID: 2100000, guid: e414a5600cfbf7e4c854b014033f67c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pants
+    second: {fileID: 2100000, guid: ccb881d7c794a9b46a1e45ad82a6bf64, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SkinTone
+    second: {fileID: 2100000, guid: 35f63c503416a08429c015e15f3612ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sleeves
+    second: {fileID: 2100000, guid: 262f07b7ce4a90e4fbb573bd717470bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SweaterBody
+    second: {fileID: 2100000, guid: 432cc287bbdfb8c42a1373085939fc1e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
