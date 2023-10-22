@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,8 +10,14 @@ public class GameManager : MonoBehaviour
 	public PizzaParlour parlour1;
 	public PizzaParlour parlour2;
 	public Camera cam;
+	public LookatThing p1Arrow;
+	public LookatThing p2Arrow;
+	public List<OnTriggerEnterEvent> triggers;
+	public int numberOfRounds = 5;
+	OnTriggerEnterEvent current = null;
 
-    int player1Layer;
+
+	int player1Layer;
     int player2Layer;
     int curLayer;
 
@@ -53,10 +61,41 @@ public class GameManager : MonoBehaviour
 			player.transform.rotation = parlour2.spawnPoint.rotation;
 
 			parlour1.pachinko.bike.GetComponent<Rigidbody>().isKinematic = false;
-			parlour1.pachinko.bike.enabled = true;
-			parlour2.pachinko.bike.enabled = true;
+
+			StartGame();
 
 			curLayer = -1;
 		}
     }
+
+	int round;
+
+	void StartGame() {
+		parlour1.pachinko.bike.enabled = true;
+		parlour2.pachinko.bike.enabled = true;
+
+		round = 0;
+
+		LoadRound();
+	}
+
+	public void LoadRound() {
+		if (++round > numberOfRounds) {
+			SceneManager.LoadScene(0);
+		}
+
+		if (current) {
+			current.triggered -= parlour1.AddScore;
+			current.triggered -= parlour2.AddScore;
+		}
+
+		current = triggers[Random.Range(0, triggers.Count)];
+		
+		current.triggered -= parlour1.AddScore;
+		current.triggered -= parlour2.AddScore;
+	}
+
+	public void Send(List<OnTriggerEnterEvent> trigger) {
+		triggers = trigger;
+	}
 }

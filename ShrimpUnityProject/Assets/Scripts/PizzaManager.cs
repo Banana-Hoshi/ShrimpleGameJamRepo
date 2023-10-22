@@ -89,6 +89,10 @@ public class PizzaManager : MonoBehaviour
         }
         ammo = newAmmo;
         bike.fixForce = defaultFix * (2f - (ammo / ammoSprites.Length)) * 0.5f;
+
+		if (ammo == 0) {
+			effect = 0;
+		}
     }
 
     private void Start()
