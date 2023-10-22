@@ -9,7 +9,6 @@ public class Bike : MonoBehaviour
 	public Transform axle;
 	public PlayerInput inputMap;
 	public Rigidbody rb;
-	public Transform[] spinyThings;
 	public float accel = 50f;
 	public float maxSpeed = 50f;
 	public float sideDrag = 10f;
@@ -17,6 +16,9 @@ public class Bike : MonoBehaviour
 	public float maxTurn = 5f;
 	public float fixForce = 5f;
 	public float maxTilt = 30f;
+
+	public Transform[] spinyThings;
+	public float spinySpeed = 5f;
 
 	public float tiltBadAngle = 30f;
 	public float tiltBadTimer = 2f;
@@ -72,7 +74,7 @@ public class Bike : MonoBehaviour
 
 		tilt = direction.magnitude;
 		foreach (Transform trans in spinyThings) {
-			trans.Rotate(Vector3.right, tilt * Time.fixedDeltaTime, Space.Self);
+			trans.Rotate(Vector3.right, tilt * spinySpeed * Time.fixedDeltaTime, Space.Self);
 		}
 
 		//side tilt
@@ -114,6 +116,7 @@ public class Bike : MonoBehaviour
 
 	WaitForFixedUpdate fixedUp = new WaitForFixedUpdate();
 	IEnumerator Move() {
+		Vector3 euler = axle.localRotation.eulerAngles;
 		while (_input.x > -10000f || jalepenioModeTimer > 0f) {
 			if (jalepenioModeTimer > 0f) {
 				rb.velocity += Quaternion.Euler(0f, transform.eulerAngles.y, 0f) * Vector3.forward * (accel * Time.fixedDeltaTime);
@@ -128,11 +131,11 @@ public class Bike : MonoBehaviour
 				rb.velocity += Quaternion.Euler(0f, transform.eulerAngles.y, 0f) * Vector3.forward * (_input.y * accel * Time.fixedDeltaTime);
 				rb.angularVelocity += Vector3.up * (_input.x * rotAccel * Time.fixedDeltaTime);
 			}
-			axle.localRotation = Quaternion.Euler(0f, _input.x * 15f, 0f);
+			axle.localRotation = Quaternion.Euler(euler.x, euler.y + _input.x * 15f, euler.z);
 
 			yield return fixedUp;
 		}
-		axle.localRotation = Quaternion.identity;
+		axle.localRotation = Quaternion.Euler(euler);
 	}
 
 	private void OnEnable() {

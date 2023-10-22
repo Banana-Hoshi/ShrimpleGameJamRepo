@@ -433,6 +433,10 @@ MonoBehaviour:
   axle: {fileID: 2539085349599902369}
   inputMap: {fileID: 6832303978289021394}
   rb: {fileID: 5669439246683668951}
+  spinyThings:
+  - {fileID: 7979297798253050999}
+  - {fileID: 588187272306682487}
+  - {fileID: 4216753938034004214}
   accel: 50
   maxSpeed: 50
   sideDrag: 10

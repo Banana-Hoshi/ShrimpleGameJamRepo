@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1296669846053070334}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 16.84}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d745430f628c664eb4146691604e2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pachinko: {fileID: 0}
+  pachinko: {fileID: 3120651751744623460}
 --- !u!1 &4667776861882739041
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,6 +277,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9645f56f112205b5aad853d396fb2a8, type: 3}
+--- !u!114 &3120651751744623460 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 787817802225708127, guid: e9645f56f112205b5aad853d396fb2a8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2422985141297364795}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 045fe9b6c686ea5419143bf82ac25135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &3965332609740157608 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1632445849269276051, guid: e9645f56f112205b5aad853d396fb2a8,

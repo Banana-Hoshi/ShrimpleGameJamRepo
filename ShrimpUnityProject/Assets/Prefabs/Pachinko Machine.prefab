@@ -5230,7 +5230,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3669423506811204159}
   - component: {fileID: 3415769302122795134}
-  - component: {fileID: 9098037869059251712}
   - component: {fileID: 7162898674545342819}
   m_Layer: 0
   m_Name: Camera
@@ -5238,7 +5237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3669423506811204159
 Transform:
   m_ObjectHideFlags: 0
@@ -5247,13 +5246,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791115083103149187}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.118044995, y: 0.6971839, z: -0.118044995, w: 0.6971839}
+  m_LocalPosition: {x: -3.88, y: 4.64, z: -0}
+  m_LocalScale: {x: 787.5, y: 1102.4998, z: 425}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1423969477242871892}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 1632445849269276051}
+  m_LocalEulerAnglesHint: {x: 19.22, y: 90, z: 0}
 --- !u!20 &3415769302122795134
 Camera:
   m_ObjectHideFlags: 0
@@ -5305,14 +5304,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &9098037869059251712
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1791115083103149187}
-  m_Enabled: 1
 --- !u!114 &7162898674545342819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10848,6 +10839,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3669423506811204159}
   - {fileID: 4445736232932738253}
   - {fileID: 2797504522877528223}
   - {fileID: 2462578131415127320}
@@ -10878,6 +10870,7 @@ MonoBehaviour:
   pizza: {fileID: 3317622076393164784, guid: 57d4c72d314c1914794bbf10c9b47da5, type: 3}
   left: {fileID: 1795797012193631492}
   right: {fileID: 8243599934714591387}
+  cam: {fileID: 0}
   jalepenioEvents:
   - {fileID: 3459875619721665380}
   mushroomEvents:
@@ -27218,10 +27211,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3102257833207352296}
-    - targetCorrespondingSourceObject: {fileID: 3024765559816848242, guid: cda092d40de93bb879f30732a6c85a0a,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3669423506811204159}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: -1581352320483374405, guid: cda092d40de93bb879f30732a6c85a0a,
         type: 3}
@@ -27509,12 +27498,6 @@ CapsuleCollider2D:
   m_Offset: {x: 1.8189894e-11, y: 0.00000049658223}
   m_Size: {x: 0.00016333495, y: 0.00011567457}
   m_Direction: 0
---- !u!4 &1423969477242871892 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3024765559816848242, guid: cda092d40de93bb879f30732a6c85a0a,
-    type: 3}
-  m_PrefabInstance: {fileID: 4195337188201161510}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1517399129119084255 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5821405518268846599, guid: cda092d40de93bb879f30732a6c85a0a,
