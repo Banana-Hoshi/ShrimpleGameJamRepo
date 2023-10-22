@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PizzaManager : MonoBehaviour
 {
@@ -17,11 +18,19 @@ public class PizzaManager : MonoBehaviour
 	public List<Collider> tires;
 	public int effect;
 	public int ammo = 0;
+	public Image[] ammoSprites;
+	public Image topping;
+	public Sprite toppings;
 
 	PhysicMaterial tireMat;
 	float defaultFriction;
 	float defaultFriction2;
 	float delayTime = -1f;
+	float defaultFix;
+
+	private void Awake() {
+		defaultFix = bike.fixForce;
+	}
 
 	/*
 	void OnParticleCollision(GameObject other) {
@@ -55,8 +64,20 @@ public class PizzaManager : MonoBehaviour
 	}
 
 	public void SetAmmo(int amt) {
-		ammo = Mathf.Max(amt, 0);
+		int newAmmo = Mathf.Max(amt, 0);
 		//do visual changes here
+		if (newAmmo > ammo) {
+			for (int i = ammo; i < newAmmo; ++i) {
+				ammoSprites[i].enabled = true;
+			}
+		}
+		else if (newAmmo < ammo) {
+			for (int i = ammo - 1; i >= newAmmo; --i) {
+				ammoSprites[i].enabled = false;
+			}
+		}
+		ammo = newAmmo;
+		bike.fixForce = defaultFix * (2f - (ammo / ammoSprites.Length)) * 0.5f;
 	}
 
 	private void Start() {
@@ -66,6 +87,12 @@ public class PizzaManager : MonoBehaviour
 		}
 		defaultFriction = tireMat.dynamicFriction;
 		defaultFriction2 = tireMat.staticFriction;
+
+
+
+		int newAmmo = ammo;
+		ammo = ammoSprites.Length;
+		SetAmmo(newAmmo);
 	}
 
 	public void Effect(int effect) {

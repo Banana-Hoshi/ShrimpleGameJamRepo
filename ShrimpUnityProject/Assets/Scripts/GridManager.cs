@@ -16,6 +16,8 @@ public class GridManager : MonoBehaviour
     {
         GenerateBuildings();
     }
+
+
     public void ChooseOptionalGridSpaces()
     {
         foreach (var space in optionalGridSpaces) 
