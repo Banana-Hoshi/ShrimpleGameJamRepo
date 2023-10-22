@@ -3,7 +3,17 @@ guid: e6326166983ec44fb88ea2be876f7c99
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PizzaBoxBase
+    second: {fileID: 2100000, guid: 84c3d8f9cbee1c7408ae259cc6f516cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RegularPizzaBoxLid
+    second: {fileID: 2100000, guid: 292b4e0c1a351814e8b7f377f46a982e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
