@@ -40,8 +40,14 @@ public class Pachinko : MonoBehaviour
 
 	void Check(int var) {
 		manager.effect = var;
-		if (var > 0 && var < toppings.Length + 1)
+		if (var > 0 && var < toppings.Length + 1) {
 			manager.topping.sprite = toppings[var - 1];
+			manager.topping.color = Color.white;
+		}
+		else {
+			manager.topping.color = Color.clear;
+		}
+
 		manager.SetAmmo(8);
 		CloseMachine();
 	}
