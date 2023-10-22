@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 8829015892700575363}
   - component: {fileID: 8601428172260755459}
   - component: {fileID: 9066166773289994674}
+  - component: {fileID: 7827685255075639590}
   m_Layer: 0
   m_Name: Zone (1)
   m_TagString: Untagged
@@ -213,6 +214,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7827685255075639590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842564656197029982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b73fc2085b6a9f4fb1ee35420a02b52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  var: 0
 --- !u!1 &1614577505439850471
 GameObject:
   m_ObjectHideFlags: 0
@@ -5207,6 +5221,7 @@ GameObject:
   - component: {fileID: 3669423506811204159}
   - component: {fileID: 3415769302122795134}
   - component: {fileID: 9098037869059251712}
+  - component: {fileID: 7162898674545342819}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -5288,6 +5303,50 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791115083103149187}
   m_Enabled: 1
+--- !u!114 &7162898674545342819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791115083103149187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &1891744451897896067
 GameObject:
   m_ObjectHideFlags: 0
@@ -5460,6 +5519,7 @@ GameObject:
   - component: {fileID: 774725805170600544}
   - component: {fileID: 1366142670220297679}
   - component: {fileID: 3728333885236959575}
+  - component: {fileID: 6951445213582602815}
   m_Layer: 0
   m_Name: Zone (3)
   m_TagString: Untagged
@@ -5553,6 +5613,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6951445213582602815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2259543199201051377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b73fc2085b6a9f4fb1ee35420a02b52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  var: 0
 --- !u!1 &2632463020954949076
 GameObject:
   m_ObjectHideFlags: 0
@@ -10756,6 +10829,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1632445849269276051}
+  - component: {fileID: 787817802225708127}
   m_Layer: 0
   m_Name: Pachinko Machine
   m_TagString: Untagged
@@ -10783,6 +10857,32 @@ Transform:
   - {fileID: 8717253468826465308}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &787817802225708127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3783887817023998467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 045fe9b6c686ea5419143bf82ac25135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  bike: {fileID: 0}
+  toppings:
+  - {fileID: 21300000, guid: e4cfb6603203d6174aaa8525cbb0145e, type: 3}
+  - {fileID: 21300000, guid: 6d2119cbf41c564ada459f33505a80ed, type: 3}
+  - {fileID: 21300000, guid: 0bb1b3ae100ded06b88bf799ca604c20, type: 3}
+  jalepenioEvents:
+  - {fileID: 3459875619721665380}
+  mushroomEvents:
+  - {fileID: 9026164167488255259}
+  - {fileID: 6951445213582602815}
+  fishEvents:
+  - {fileID: 4375741835579443176}
+  - {fileID: 7827685255075639590}
 --- !u!1 &3878086757380088047
 GameObject:
   m_ObjectHideFlags: 0
@@ -10958,6 +11058,7 @@ GameObject:
   - component: {fileID: 340096190614642034}
   - component: {fileID: 3828774647692937743}
   - component: {fileID: 7395412562274496033}
+  - component: {fileID: 4375741835579443176}
   m_Layer: 0
   m_Name: Zone (4)
   m_TagString: Untagged
@@ -11051,6 +11152,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4375741835579443176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4231704672840780242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b73fc2085b6a9f4fb1ee35420a02b52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  var: 0
 --- !u!1 &4384402867361188808
 GameObject:
   m_ObjectHideFlags: 0
@@ -16580,6 +16694,7 @@ GameObject:
   - component: {fileID: 2445915033622046296}
   - component: {fileID: 3547715736211330315}
   - component: {fileID: 8123301774668307717}
+  - component: {fileID: 3459875619721665380}
   m_Layer: 0
   m_Name: Zone (2)
   m_TagString: Untagged
@@ -16673,6 +16788,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3459875619721665380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6675074894712184312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b73fc2085b6a9f4fb1ee35420a02b52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  var: 0
 --- !u!1 &6806225084050234578
 GameObject:
   m_ObjectHideFlags: 0
@@ -16936,6 +17064,7 @@ GameObject:
   - component: {fileID: 7369464663607010703}
   - component: {fileID: 6128238171555554099}
   - component: {fileID: 4055880013172953465}
+  - component: {fileID: 9026164167488255259}
   m_Layer: 0
   m_Name: Zone (5)
   m_TagString: Untagged
@@ -17029,6 +17158,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9026164167488255259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7506344950549104144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b73fc2085b6a9f4fb1ee35420a02b52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  var: 0
 --- !u!1 &7734050055071673771
 GameObject:
   m_ObjectHideFlags: 0
