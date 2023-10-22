@@ -49,6 +49,8 @@ public class GridManager : MonoBehaviour
         }
         foreach (var tile in optionalGridSpaces)
         {
+			if (!tile.activeInHierarchy)
+				continue;
             GameObject obj = Instantiate(buildingList[Random.Range(0, buildingList.Length)], tile.transform);
             obj.transform.localRotation = GetAngle(obj.transform.position);
 

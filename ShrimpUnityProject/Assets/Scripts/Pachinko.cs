@@ -65,6 +65,7 @@ public class Pachinko : MonoBehaviour
 			manager.topping.color = Color.white;
 		}
 		else {
+			manager.topping.sprite = null;
 			manager.topping.color = Color.clear;
 		}
 

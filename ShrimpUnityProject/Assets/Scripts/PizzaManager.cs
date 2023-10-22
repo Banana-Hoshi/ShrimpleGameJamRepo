@@ -96,6 +96,8 @@ public class PizzaManager : MonoBehaviour
 
 		if (ammo == 0) {
 			effect = 0;
+			topping.sprite = null;
+			topping.color = Color.clear;
 		}
     }
 
