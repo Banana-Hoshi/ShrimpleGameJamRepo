@@ -89,11 +89,13 @@ public class GameManager : MonoBehaviour
 
 		if (current) {
 			current.winner -= CheckWin;
+			current.GetComponent<Collider>().enabled = false;
 		}
 
 		current = triggers[Random.Range(0, triggers.Count)];
 
 		current.winner += CheckWin;
+		current.GetComponent<Collider>().enabled = true;
 
 		p1Arrow.target = current.transform;
 		p2Arrow.target = current.transform;
@@ -106,6 +108,7 @@ public class GameManager : MonoBehaviour
 
 	public void CheckWin(GameObject winner) {
 		PizzaManager manager = winner.GetComponent<PizzaManager>();
+		Debug.Log(winner);
 		if (manager && manager.ammo > 0) {
 			if (parlour1.pachinko.manager == manager) {
 				parlour1.AddScore(manager.ammo);
