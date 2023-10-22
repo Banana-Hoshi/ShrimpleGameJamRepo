@@ -6,6 +6,7 @@ public class Pachinko : MonoBehaviour
 {
 	public PizzaManager manager;
 	public Bike bike;
+	public Sprite[] toppings;
 	//1
 	public List<OnTriggerEnterEvent> jalepenioEvents;
 	//2
@@ -39,7 +40,9 @@ public class Pachinko : MonoBehaviour
 
 	void Check(int var) {
 		manager.effect = var;
-		manager.SetAmmo(16);
+		if (var > 0 && var < toppings.Length + 1)
+			manager.topping.sprite = toppings[var - 1];
+		manager.SetAmmo(8);
 		CloseMachine();
 	}
 

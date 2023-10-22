@@ -19,6 +19,8 @@ public class PizzaManager : MonoBehaviour
 	public int effect;
 	public int ammo = 0;
 	public Image[] ammoSprites;
+	public Image topping;
+	public Sprite toppings;
 
 	PhysicMaterial tireMat;
 	float defaultFriction;
@@ -75,7 +77,7 @@ public class PizzaManager : MonoBehaviour
 			}
 		}
 		ammo = newAmmo;
-		bike.fixForce = defaultFix * (3f - (2f * ammo / ammoSprites.Length)) * 0.333f;
+		bike.fixForce = defaultFix * (2f - (ammo / ammoSprites.Length)) * 0.5f;
 	}
 
 	private void Start() {

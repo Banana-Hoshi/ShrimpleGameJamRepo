@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Bike : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class Bike : MonoBehaviour
 	public float tiltBadAngle = 30f;
 	public float tiltBadTimer = 2f;
 	public event Action tooMuchTilt;
+	public Image square;
 
 
 	float jalepenioModeTimer = 0f;
@@ -29,6 +31,7 @@ public class Bike : MonoBehaviour
 	private void Awake() {
 		rb.centerOfMass = transform.position;
 		tiltTimer = 0f;
+		square.color = Color.yellow;
 	}
 
 	float tilt;
@@ -84,6 +87,7 @@ public class Bike : MonoBehaviour
 				tiltTimer -= tiltBadTimer;
 				tooMuchTilt?.Invoke();
 			}
+			square.color = Color.Lerp(Color.yellow, Color.red, tiltTimer / tiltBadTimer);
 		}
 
 		//front tilt
