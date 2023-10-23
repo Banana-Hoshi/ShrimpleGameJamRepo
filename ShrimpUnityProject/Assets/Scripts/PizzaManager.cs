@@ -7,8 +7,10 @@ using UnityEngine.UI;
 
 public class PizzaManager : MonoBehaviour
 {
+    public PizzaParlour parlour;
     public PlayerInput input;
     public Bike bike;
+	public LookatThing arrow;
     public float shootDelay = 5f;
     public Transform shootPoint;
     public float effectTime = 10f;
@@ -98,6 +100,7 @@ public class PizzaManager : MonoBehaviour
 			effect = 0;
 			topping.sprite = null;
 			topping.color = Color.clear;
+			arrow.target = parlour.pachinko.transform;
 		}
     }
 
@@ -139,8 +142,11 @@ public class PizzaManager : MonoBehaviour
         particles.GetComponent<ParticleSystemRenderer>().sharedMaterial = sharedFire;
         ParticleSystem.MainModule main = particles.main;
         main.startLifetime = 2f;
+		if (bike.jalepenioModeTimer <= 0f) {
+			bike.jalepenioModeTimer = 1f;
+	        StartCoroutine(DelayedFuncCondition(delegate () {return bike.jalepenioModeTimer <= 0f;}, RemoveJalepenio));
+		}
         bike.SetJalepenio(effectTime);
-        StartCoroutine(DelayedFunc(effectTime, RemoveJalepenio));
     }
 
     public void RemoveJalepenio()
@@ -152,13 +158,15 @@ public class PizzaManager : MonoBehaviour
 
     public void SetMushroom()
     {
-        bike.SetMushroom(effectTime);
         //do visual effects here
-
         mushroomCam.SetActive(true);
         cam.renderPostProcessing = true;
 
-        StartCoroutine(DelayedFunc(effectTime, RemoveMushroom));
+		if (bike.mushroomModeTimer <= 0f) {
+			bike.mushroomModeTimer = 1f;
+			StartCoroutine(DelayedFuncCondition(delegate () { return bike.mushroomModeTimer <= 0f; }, RemoveMushroom));
+		}
+		bike.SetMushroom(effectTime);
     }
 
     public void RemoveMushroom()
@@ -173,8 +181,12 @@ public class PizzaManager : MonoBehaviour
     {
         tireMat.dynamicFriction = 0f;
         tireMat.staticFriction = 0f;
+		
+		if (bike.fishModeTimer <= 0f) {
+			bike.fishModeTimer = 1f;
+	        StartCoroutine(DelayedFuncCondition(delegate () {return bike.fishModeTimer <= 0f;}, RemoveFish));
+		}
         bike.SetFish(effectTime);
-        StartCoroutine(DelayedFunc(effectTime, RemoveFish));
     }
 
     public void RemoveFish()
@@ -186,6 +198,12 @@ public class PizzaManager : MonoBehaviour
     IEnumerator DelayedFunc(float time, System.Action action)
     {
         yield return new WaitForSeconds(time);
+        action.Invoke();
+    }
+
+    IEnumerator DelayedFuncCondition(System.Func<bool> condition, System.Action action)
+    {
+        yield return new WaitUntil(condition);
         action.Invoke();
     }
 

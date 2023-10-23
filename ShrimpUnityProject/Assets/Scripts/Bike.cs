@@ -26,9 +26,9 @@ public class Bike : MonoBehaviour
 	public Image square;
 
 
-	float jalepenioModeTimer = 0f;
-	float mushroomModeTimer = 0f;
-	float fishModeTimer = 0f;
+	public float jalepenioModeTimer = 0f;
+	public float mushroomModeTimer = 0f;
+	public float fishModeTimer = 0f;
 
 	float tiltTimer = -1f;
 	private void Awake() {

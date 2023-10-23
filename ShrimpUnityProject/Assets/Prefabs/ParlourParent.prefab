@@ -75,7 +75,7 @@ MonoBehaviour:
   manager: {fileID: 0}
   text: {fileID: 0}
   score: 0
-  multiplier: 100
+  multiplier: 5
 --- !u!1 &1426794485686026370
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,6 +227,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winTime: 5
+  colourHint: {fileID: 4365938908604140377}
+  hintColour: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1001 &2422985141297364795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -453,17 +455,12 @@ PrefabInstance:
     - target: {fileID: 3558615306468640588, guid: 0819125f1b40a7b469514e0194b76e8f,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3558615306468640588, guid: 0819125f1b40a7b469514e0194b76e8f,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3558615306468640588, guid: 0819125f1b40a7b469514e0194b76e8f,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3558615306468640588, guid: 0819125f1b40a7b469514e0194b76e8f,
         type: 3}

@@ -30,8 +30,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6111464436959063752}
-  - {fileID: 8224134929897323997}
   - {fileID: 599967346347066116}
+  - {fileID: 8224134929897323997}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3237125097184597510
@@ -281,12 +281,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6953488257609814053}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81d8e036db68cac4cae621b87905ddcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   winTime: 2
+  colourHint: {fileID: 349543179473437048}
+  hintColour: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &7734187266544811803
 GameObject:
   m_ObjectHideFlags: 0

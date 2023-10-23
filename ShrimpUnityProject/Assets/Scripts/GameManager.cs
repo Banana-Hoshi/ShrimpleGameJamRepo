@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
@@ -10,11 +11,12 @@ public class GameManager : MonoBehaviour
 	public PizzaParlour parlour1;
 	public PizzaParlour parlour2;
 	public Camera cam;
-	public LookatThing p1Arrow;
-	public LookatThing p2Arrow;
 	public Transform houseEffect;
 	public List<StayInTriggerCheck> triggers;
 	public int numberOfRounds = 5;
+	public GameObject overlayCanvas;
+	public TMPro.TMP_Text roundText;
+	public TMPro.TMP_Text winnerText;
 	StayInTriggerCheck current = null;
 
 
@@ -27,6 +29,8 @@ public class GameManager : MonoBehaviour
         player1Layer = LayerMask.NameToLayer("Camera1");
         player2Layer = LayerMask.NameToLayer("Camera2");
         curLayer = player1Layer;
+		roundText.text = "";
+		overlayCanvas.SetActive(false);
     }
 
     private void OnPlayerJoined(PlayerInput playerInput)
@@ -48,9 +52,9 @@ public class GameManager : MonoBehaviour
 			parlour1.pachinko.bike = player.GetComponent<Bike>();
 			parlour1.pachinko.bike.enabled = false;
 			parlour1.pachinko.manager = player.GetComponent<PizzaManager>();
+			parlour1.pachinko.manager.parlour = parlour1;
 			player.transform.position = parlour1.spawnPoint.position;
 			player.transform.rotation = parlour1.spawnPoint.rotation;
-			p1Arrow = player.GetComponentInChildren<LookatThing>();
 			parlour1.text = player.GetComponentInChildren<TMPro.TMP_Text>();
 
 			player.GetComponent<Rigidbody>().isKinematic = true;
@@ -59,15 +63,16 @@ public class GameManager : MonoBehaviour
         }
 		else if (curLayer == player2Layer) {
 			parlour2.pachinko.bike = player.GetComponent<Bike>();
+			parlour2.pachinko.bike.enabled = false;
 			parlour2.pachinko.manager = player.GetComponent<PizzaManager>();
+			parlour2.pachinko.manager.parlour = parlour2;
 			player.transform.position = parlour2.spawnPoint.position;
 			player.transform.rotation = parlour2.spawnPoint.rotation;
-			p2Arrow = player.GetComponentInChildren<LookatThing>();
 			parlour2.text = player.GetComponentInChildren<TMPro.TMP_Text>();
 
-			parlour1.pachinko.bike.GetComponent<Rigidbody>().isKinematic = false;
+			player.GetComponent<Rigidbody>().isKinematic = true;
 
-			StartGame();
+			StartCoroutine(StartGame());
 
 			curLayer = -1;
 		}
@@ -75,32 +80,47 @@ public class GameManager : MonoBehaviour
 
 	int round;
 
-	void StartGame() {
+	IEnumerator StartGame() {
+		overlayCanvas.SetActive(true);
+		for (int i = 5; i > 0; --i) {
+			winnerText.text = i.ToString();
+			yield return new WaitForSeconds(1f);
+		}
+		winnerText.text = "Go!";
+
 		parlour1.pachinko.bike.enabled = true;
 		parlour2.pachinko.bike.enabled = true;
 
 		round = 0;
 
+		parlour1.pachinko.bike.GetComponent<Rigidbody>().isKinematic = false;
+		parlour2.pachinko.bike.GetComponent<Rigidbody>().isKinematic = false;
+
 		LoadRound();
+
+		yield return new WaitForSeconds(3f);
+		winnerText.text = "";
 	}
 
 	public void LoadRound() {
-		if (++round > numberOfRounds) {
-			SceneManager.LoadScene(0);
-		}
-
 		if (current) {
 			current.winner -= CheckWin;
+			current.enabled = false;
 			current.GetComponent<Collider>().enabled = false;
 		}
+
+		if (++round > numberOfRounds) {
+			StartCoroutine(WinnerCheck());
+			return;
+		}
+		roundText.text = round.ToString();
 
 		current = triggers[Random.Range(0, triggers.Count)];
 
 		current.winner += CheckWin;
+		current.enabled = true;
 		current.GetComponent<Collider>().enabled = true;
 
-		p1Arrow.target = current.transform;
-		p2Arrow.target = current.transform;
 		houseEffect.position = current.transform.position;
 	}
 
@@ -110,7 +130,6 @@ public class GameManager : MonoBehaviour
 
 	public void CheckWin(GameObject winner) {
 		PizzaManager manager = winner.GetComponent<PizzaManager>();
-		Debug.Log(winner);
 		if (manager && manager.ammo > 0) {
 			if (parlour1.pachinko.manager == manager) {
 				parlour1.AddScore(manager.ammo);
@@ -122,5 +141,19 @@ public class GameManager : MonoBehaviour
 			}
 			LoadRound();
 		}
+	}
+
+	IEnumerator WinnerCheck() {
+		if (parlour1.score == parlour2.score) {
+			winnerText.text = "no one wins";
+			winnerText.color = Color.blue;
+		}
+		else {
+			winnerText.text = parlour1.score > parlour2.score ? "Papa Johannes Wins" : "Large Julius Wins";
+			winnerText.color = parlour1.score > parlour2.score ? Color.red : Color.green;
+		}
+		houseEffect.position = Vector3.down * 100f;
+		yield return new WaitForSeconds(10f);
+		SceneManager.LoadScene(0);
 	}
 }

@@ -8,6 +8,15 @@ public class StayInTriggerCheck : MonoBehaviour
 
 	public event System.Action<GameObject> winner;
 	public float winTime = 2f;
+	public Renderer colourHint;
+	public Color hintColour = Color.yellow;
+	Color cachedColour;
+
+	private void Awake() {
+		if (colourHint) {
+			cachedColour = colourHint.sharedMaterial.color;
+		}
+	}
 
 	private void OnTriggerEnter(Collider other) {
 		PizzaManager manager = other.attachedRigidbody?.GetComponent<PizzaManager>();
@@ -15,6 +24,10 @@ public class StayInTriggerCheck : MonoBehaviour
 			if (!objects.ContainsKey(other.attachedRigidbody.name)) {
 				objects.Add(other.attachedRigidbody.name, 0f);
 			}
+		}
+
+		if (colourHint && objects.Count > 0) {
+			colourHint.material.color = hintColour;
 		}
 	}
 
@@ -31,9 +44,16 @@ public class StayInTriggerCheck : MonoBehaviour
 	private void OnTriggerExit(Collider other) {
 		if (other.attachedRigidbody)
 			objects.Remove(other.attachedRigidbody.name);
+
+		if (colourHint && objects.Count == 0) {
+			colourHint.material.color = cachedColour;
+		}
 	}
 
 	private void OnDisable() {
 		objects.Clear();
+		if (colourHint) {
+			colourHint.material.color = cachedColour;
+		}
 	}
 }

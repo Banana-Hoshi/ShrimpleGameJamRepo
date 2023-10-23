@@ -201,12 +201,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2211080181280027118}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81d8e036db68cac4cae621b87905ddcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   winTime: 2
+  colourHint: {fileID: 4357969388660311588}
+  hintColour: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &4224860161663024374
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,8 +239,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4143380660953899052}
-  - {fileID: 2709101644798977909}
   - {fileID: 489144583627721694}
+  - {fileID: 2709101644798977909}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6960097259636475818

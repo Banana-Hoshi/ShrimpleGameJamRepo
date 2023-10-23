@@ -30,8 +30,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3746953204286606084}
-  - {fileID: 8213068799709636954}
   - {fileID: 7208501819721592654}
+  - {fileID: 8213068799709636954}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1499649989259944398
@@ -265,12 +265,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7350063769937668638}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81d8e036db68cac4cae621b87905ddcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   winTime: 2
+  colourHint: {fileID: 7298867189497507651}
+  hintColour: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &8480619564410190736
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,7 +507,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 573b148bb4f70f14f8c1c259d5c525d2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 573b148bb4f70f14f8c1c259d5c525d2,
         type: 3}

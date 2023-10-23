@@ -24,9 +24,8 @@ public class PizzaProjectile : MonoBehaviour
 
 	private void OnCollisionEnter(Collision other) {
 		PizzaManager manager = other.gameObject.GetComponent<PizzaManager>();
-		if (manager != owner) {
-			if (manager)
-				manager.Effect(effect);
+		if (manager && manager != owner) {
+			manager.Effect(effect);
 			col.enabled = false;
 			bod.velocity = Vector3.zero;
 		}
