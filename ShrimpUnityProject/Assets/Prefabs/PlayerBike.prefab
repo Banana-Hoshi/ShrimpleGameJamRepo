@@ -433,6 +433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   axle: {fileID: 2539085349599902369}
+  axleRadius: 25
   inputMap: {fileID: 6832303978289021394}
   rb: {fileID: 5669439246683668951}
   accel: 50

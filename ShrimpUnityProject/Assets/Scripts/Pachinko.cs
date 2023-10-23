@@ -45,9 +45,9 @@ public class Pachinko : MonoBehaviour
 		bike.enabled = false;
 		manager.enabled = false;
 		bike.transform.position = parlour.transform.position;
-		bike.rb.useGravity = false;
 		bike.rb.velocity = Vector3.zero;
 		bike.rb.angularVelocity = Vector3.zero;
+		bike.rb.isKinematic = true;
 
 		cam.gameObject.SetActive(true);
 
@@ -89,7 +89,7 @@ public class Pachinko : MonoBehaviour
 		bike.enabled = true;
 		manager.enabled = true;
 		bike.transform.position = parlour.spawnPoint.position;
-		bike.rb.useGravity = true;
+		bike.rb.isKinematic = false;
 
 		manager.arrow.target = parlour.manager.houseEffect;
 

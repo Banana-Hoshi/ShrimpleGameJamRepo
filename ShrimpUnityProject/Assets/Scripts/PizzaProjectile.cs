@@ -7,11 +7,12 @@ public class PizzaProjectile : MonoBehaviour
 {
 	public Rigidbody bod;
 	public float speed = 40f;
+	public float bump = 5f;
 	public Collider col;
 	int effect;
 	PizzaManager owner;
 	public void Shoot(PizzaManager own, Vector3 direction, int eft) {
-		bod.velocity = direction * speed;
+		bod.velocity = direction * speed + Vector3.up * bump;
 		bod.angularVelocity = new Vector3(
 			Random.Range(-1f, 1f),
 			Random.Range(-1f, 1f),
@@ -28,6 +29,7 @@ public class PizzaProjectile : MonoBehaviour
 			manager.Effect(effect);
 			col.enabled = false;
 			bod.velocity = Vector3.zero;
+			bod.useGravity = false;
 		}
 	}
 

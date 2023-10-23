@@ -97,6 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bod: {fileID: 5496841522543643821}
   speed: 75
+  bump: 5
   col: {fileID: 1177122368343210572}
 --- !u!1001 &9149017632904649417
 PrefabInstance:
