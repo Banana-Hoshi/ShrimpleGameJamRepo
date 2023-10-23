@@ -118,7 +118,7 @@ public class Bike : MonoBehaviour
 	WaitForFixedUpdate fixedUp = new WaitForFixedUpdate();
 	IEnumerator Move() {
 		Vector3 euler = axle.localRotation.eulerAngles;
-		while (_input.x > -10000f || jalepenioModeTimer > 0f) {
+		while ((_input.x > -10000f || jalepenioModeTimer > 0f) && enabled) {
 			if (jalepenioModeTimer > 0f) {
 				rb.velocity += Quaternion.Euler(0f, transform.eulerAngles.y, 0f) * Vector3.forward * (accel * Time.fixedDeltaTime);
 				if (_input.x > -10000f)
