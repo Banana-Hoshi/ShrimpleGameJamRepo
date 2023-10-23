@@ -4639,6 +4639,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5405147267998056382, guid: 2c8bb12b71d611947afe9cc3caa1efc2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6442797131808486403, guid: 2c8bb12b71d611947afe9cc3caa1efc2,
         type: 3}
       propertyPath: m_Layer
@@ -22578,6 +22583,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5405147267998056382, guid: 2c8bb12b71d611947afe9cc3caa1efc2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6442797131808486403, guid: 2c8bb12b71d611947afe9cc3caa1efc2,
         type: 3}
       propertyPath: m_Layer
@@ -36577,7 +36587,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 157987b3598a1ce4788586a89fdfe1e8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 1
   Mute: 0

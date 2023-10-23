@@ -443,7 +443,7 @@ PrefabInstance:
     - target: {fileID: 3558615306468640588, guid: 0819125f1b40a7b469514e0194b76e8f,
         type: 3}
       propertyPath: ShapeModule.angle
-      value: 68.85
+      value: 38.79
       objectReference: {fileID: 0}
     - target: {fileID: 3558615306468640588, guid: 0819125f1b40a7b469514e0194b76e8f,
         type: 3}
@@ -453,12 +453,17 @@ PrefabInstance:
     - target: {fileID: 3558615306468640588, guid: 0819125f1b40a7b469514e0194b76e8f,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3558615306468640588, guid: 0819125f1b40a7b469514e0194b76e8f,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3558615306468640588, guid: 0819125f1b40a7b469514e0194b76e8f,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3558615306468640588, guid: 0819125f1b40a7b469514e0194b76e8f,
         type: 3}
