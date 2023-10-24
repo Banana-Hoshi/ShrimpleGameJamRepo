@@ -175,16 +175,28 @@ public class GameManager : MonoBehaviour
 	}
 
 	IEnumerator WinnerCheck() {
+		houseEffect.position = Vector3.down * 100f;
 		if (parlour1.score == parlour2.score) {
 			winnerText.text = "no one wins";
 			winnerText.color = Color.blue;
+
+			yield return new WaitForSeconds(5f);
 		}
 		else {
 			winnerText.text = parlour1.score > parlour2.score ? "Papa Johannes Wins" : "Large Julius Wins";
 			winnerText.color = parlour1.score > parlour2.score ? Color.red : Color.green;
+
+			PizzaBox pizza = parlour1.pachinko.manager.box;
+			Transform winner = parlour1.score > parlour2.score ? parlour1.pachinko.bike.transform : parlour2.pachinko.bike.transform;
+			for (float t = 0; t < 10f; t += Time.fixedDeltaTime) {
+				Instantiate(pizza,
+					winner.position + new Vector3(Random.Range(-10f, 10f), Random.Range(1f, 5f), Random.Range(-10f, 10f)),
+					Quaternion.Euler(Random.Range(-45f, 45f), Random.Range(-45f, 45f), Random.Range(-45f, 45f))
+					).Eject(true);
+				yield return Bike.fixedUp;
+			}
 		}
-		houseEffect.position = Vector3.down * 100f;
-		yield return new WaitForSeconds(10f);
+
 		SceneManager.LoadSceneAsync(0);
 	}
 }

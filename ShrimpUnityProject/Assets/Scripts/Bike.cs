@@ -115,7 +115,7 @@ public class Bike : MonoBehaviour
 			Mathf.Lerp(rb.angularVelocity.z, 0f, Mathf.Sign(rb.angularVelocity.z) * euler.z / maxTilt));
 	}
 
-	WaitForFixedUpdate fixedUp = new WaitForFixedUpdate();
+	public static WaitForFixedUpdate fixedUp = new WaitForFixedUpdate();
 	IEnumerator Move() {
 		Vector3 euler = axle.localRotation.eulerAngles;
 		while ((_input.x > -10000f || jalepenioModeTimer > 0f) && enabled) {

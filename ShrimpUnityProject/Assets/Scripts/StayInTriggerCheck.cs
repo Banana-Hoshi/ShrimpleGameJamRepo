@@ -1,10 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class StayInTriggerCheck : MonoBehaviour
 {
-	Dictionary<string, float> objects = new Dictionary<string, float>();
+	public class Pair<T, T2> {
+		public Pair(T first, T2 second) {
+			this.first = first;
+			this.second = second;
+		}
+		public T first;
+		public T2 second;
+	}
+	Dictionary<Rigidbody, Pair<int, float>> objects = new Dictionary<Rigidbody, Pair<int, float>>();
 
 	public event System.Action<GameObject> winner;
 	public float winTime = 2f;
@@ -21,8 +30,11 @@ public class StayInTriggerCheck : MonoBehaviour
 	private void OnTriggerEnter(Collider other) {
 		PizzaManager manager = other.attachedRigidbody?.GetComponent<PizzaManager>();
 		if (manager) {
-			if (!objects.ContainsKey(other.attachedRigidbody.name)) {
-				objects.Add(other.attachedRigidbody.name, 0f);
+			if (objects.ContainsKey(other.attachedRigidbody)) {
+				objects[other.attachedRigidbody].first += 1;
+			}
+			else {
+				objects.Add(other.attachedRigidbody, new Pair<int, float>(1, 0f));
 			}
 		}
 
@@ -32,22 +44,32 @@ public class StayInTriggerCheck : MonoBehaviour
 	}
 
 	private void OnTriggerStay(Collider other) {
-		if (objects.ContainsKey(other.attachedRigidbody?.name)) {
-			objects[other.attachedRigidbody.name] += Time.fixedDeltaTime;
-			if (objects[other.attachedRigidbody.name] > winTime) {
+		if (objects.ContainsKey(other.attachedRigidbody)) {
+			objects[other.attachedRigidbody].second += Time.fixedDeltaTime;
+			if (objects[other.attachedRigidbody].second > winTime) {
 				winner?.Invoke(other.attachedRigidbody.gameObject);
-				objects.Remove(other.attachedRigidbody.name);
+				
+				objects.Clear();
+
+				if (colourHint) {
+					colourHint.material.color = cachedColour;
+				}
 			}
 		}
 	}
 
 	private void OnTriggerExit(Collider other) {
-		if (other.attachedRigidbody)
-			objects.Remove(other.attachedRigidbody.name);
+		if (objects.ContainsKey(other.attachedRigidbody)) {
+			objects[other.attachedRigidbody].first -= 1;
+			if (objects[other.attachedRigidbody].first == 0) {
+				objects.Remove(other.attachedRigidbody);
 
-		if (colourHint && objects.Count == 0) {
-			colourHint.material.color = cachedColour;
+				if (colourHint && objects.Count == 0) {
+					colourHint.material.color = cachedColour;
+				}
+			}
 		}
+
 	}
 
 	private void OnDisable() {

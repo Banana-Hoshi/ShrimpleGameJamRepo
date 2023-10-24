@@ -30,13 +30,13 @@ public class PizzaBox : MonoBehaviour
 		lid.transform.localRotation = Quaternion.identity;
 	}
 
-	public void Eject() {
+	public void Eject(bool withPizza = false) {
 		OpenLid();
 		rb.isKinematic = false;
 		col.enabled = true;
 		transform.SetParent(null);
 		rb.velocity = launch;
-		pizza.SetActive(false);
+		pizza.SetActive(withPizza);
 		Destroy(gameObject, lifeSpan);
 	}
 }

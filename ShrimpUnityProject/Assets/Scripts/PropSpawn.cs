@@ -8,8 +8,9 @@ public class PropSpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        props[Random.Range(0, props.Length)].SetActive(false);
-        props[Random.Range(0, props.Length)].SetActive(false);
+		for (int i = 0; i < props.Length - 1; ++i)
+        	props[Random.Range(0, props.Length)].SetActive(false);
+		
         foreach (GameObject obj in props)
         {
             Rigidbody rb = obj.GetComponent<Rigidbody>();

@@ -44,6 +44,7 @@ public class GridManager : MonoBehaviour
         {
             GameObject obj = Instantiate(buildingList[Random.Range(0, buildingList.Length)], tile.transform);
             obj.transform.localRotation = GetAngle(obj.transform.position);
+			Destroy(tile.GetComponent<BoxCollider>());
 
 			triggers.Add(obj.GetComponentInChildren<StayInTriggerCheck>());
         }
@@ -53,6 +54,7 @@ public class GridManager : MonoBehaviour
 				continue;
             GameObject obj = Instantiate(buildingList[Random.Range(0, buildingList.Length)], tile.transform);
             obj.transform.localRotation = GetAngle(obj.transform.position);
+			Destroy(tile.GetComponent<BoxCollider>());
 
 			triggers.Add(obj.GetComponentInChildren<StayInTriggerCheck>());
         }
