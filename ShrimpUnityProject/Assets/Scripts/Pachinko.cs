@@ -52,7 +52,7 @@ public class Pachinko : MonoBehaviour
 		cam.gameObject.SetActive(true);
 
 		//setup the dropper here
-		tempPizza = Instantiate(pizza, (left.position + right.position) / 2f, Quaternion.identity);
+		tempPizza = Instantiate(pizza, Vector3.Lerp(left.position, right.position, Random.Range(0f, 1f)), Quaternion.identity);
 		tempPizza.transform.localScale = transform.localScale;
 		tempPizza.transform.LookAt(cam.transform);
 		tempPizza.isKinematic = true;

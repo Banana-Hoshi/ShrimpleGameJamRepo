@@ -99,6 +99,7 @@ MonoBehaviour:
   speed: 75
   bump: 5
   col: {fileID: 1177122368343210572}
+  pizza: {fileID: 8754274666109762850}
 --- !u!1001 &9149017632904649417
 PrefabInstance:
   m_ObjectHideFlags: 0

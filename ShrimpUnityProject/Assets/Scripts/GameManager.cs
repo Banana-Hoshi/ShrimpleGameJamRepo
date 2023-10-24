@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 	public TMPro.TMP_Text winnerText;
 	StayInTriggerCheck current = null;
 
+	PlayerInput tempInput;
 
 	int player1Layer;
     int player2Layer;
@@ -60,6 +61,7 @@ public class GameManager : MonoBehaviour
 			player.GetComponent<Rigidbody>().isKinematic = true;
 
             curLayer = player2Layer;
+			StartCoroutine(AddSoloCheck(playerInput));
         }
 		else if (curLayer == player2Layer) {
 			parlour2.pachinko.bike = player.GetComponent<Bike>();
@@ -75,6 +77,10 @@ public class GameManager : MonoBehaviour
 			StartCoroutine(StartGame());
 
 			curLayer = -1;
+			if (tempInput) {
+				tempInput.currentActionMap.FindAction("Shoot").started -= StartSolo;
+				tempInput = null;
+			}
 		}
     }
 
@@ -89,12 +95,14 @@ public class GameManager : MonoBehaviour
 		winnerText.text = "Go!";
 
 		parlour1.pachinko.bike.enabled = true;
-		parlour2.pachinko.bike.enabled = true;
+		if (parlour2.pachinko.bike)
+			parlour2.pachinko.bike.enabled = true;
 
 		round = 0;
 
 		parlour1.pachinko.bike.GetComponent<Rigidbody>().isKinematic = false;
-		parlour2.pachinko.bike.GetComponent<Rigidbody>().isKinematic = false;
+		if (parlour2.pachinko.bike)
+			parlour2.pachinko.bike.GetComponent<Rigidbody>().isKinematic = false;
 
 		LoadRound();
 
@@ -141,6 +149,29 @@ public class GameManager : MonoBehaviour
 			}
 			LoadRound();
 		}
+	}
+
+	IEnumerator AddSoloCheck(PlayerInput playerInput) {
+		yield return new WaitForSeconds(1f);
+		if (parlour2.pachinko.bike == null) {
+			tempInput = playerInput;
+			tempInput.currentActionMap.FindAction("Shoot").started += StartSolo;
+		}
+	}
+
+	void StartSolo(InputAction.CallbackContext ctx) {
+		RectTransform roundDisplay = roundText.transform.parent as RectTransform;
+		roundDisplay.anchorMin += Vector2.up;
+		roundDisplay.anchorMax += Vector2.up;
+		roundDisplay.anchoredPosition = -roundDisplay.anchoredPosition;
+
+		curLayer = -1;
+		tempInput.currentActionMap.FindAction("Shoot").started -= StartSolo;
+		tempInput = null;
+
+		inputManager.DisableJoining();
+
+		StartCoroutine(StartGame());
 	}
 
 	IEnumerator WinnerCheck() {

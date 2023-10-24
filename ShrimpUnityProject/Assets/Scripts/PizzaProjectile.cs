@@ -9,18 +9,24 @@ public class PizzaProjectile : MonoBehaviour
 	public float speed = 40f;
 	public float bump = 5f;
 	public Collider col;
+	public Transform pizza;
+	Vector3 angularVelo;
 	int effect;
 	PizzaManager owner;
 	public void Shoot(PizzaManager own, Vector3 direction, int eft) {
 		bod.velocity = direction * speed + Vector3.up * bump;
-		bod.angularVelocity = new Vector3(
+		angularVelo = new Vector3(
 			Random.Range(-1f, 1f),
 			Random.Range(-1f, 1f),
 			Random.Range(-1f, 1f)
-			).normalized * Random.Range(5f, 10f);
+			).normalized * Random.Range(5f, 10f) * Time.fixedDeltaTime;
 		effect = eft;
 		owner = own;
 		StartCoroutine(Die());
+	}
+
+	private void FixedUpdate() {
+		pizza.Rotate(angularVelo);
 	}
 
 	private void OnCollisionEnter(Collision other) {
