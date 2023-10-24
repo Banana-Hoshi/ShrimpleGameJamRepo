@@ -159,7 +159,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 2529
+    m_Bits: 6625
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -391,6 +391,8 @@ Transform:
   - {fileID: 4828508239446307226}
   - {fileID: 1535340585795627558}
   - {fileID: 2910744177999279163}
+  - {fileID: 2869239897689409371}
+  - {fileID: 834111445589357251}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &5669439246683668951
@@ -506,6 +508,10 @@ MonoBehaviour:
   - {fileID: 5210872251112256760}
   - {fileID: 344816637288891722}
   - {fileID: 722620336411472776}
+  box: {fileID: 7802228886356454169, guid: dceb6f766815c74489f2d9a41dffe5b1, type: 3}
+  pizzaBoxSpots:
+  - {fileID: 2869239897689409371}
+  - {fileID: 834111445589357251}
   topping: {fileID: 857573894961269683}
   regularCam: {fileID: 1075877093186995073}
   mushroomCam: {fileID: 6927077541223696326}
@@ -1494,6 +1500,37 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1882811210904040740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 834111445589357251}
+  m_Layer: 6
+  m_Name: PizzaSpot2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &834111445589357251
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882811210904040740}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0.068711855, z: 0, w: 0.9976366}
+  m_LocalPosition: {x: 0.05, y: 3.641, z: -2.06}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935315208528365973}
+  m_LocalEulerAnglesHint: {x: 0, y: -7.88, z: 0}
 --- !u!1 &1972155138574000399
 GameObject:
   m_ObjectHideFlags: 0
@@ -2348,6 +2385,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &3788637206392199132
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2869239897689409371}
+  m_Layer: 6
+  m_Name: PizzaSpot1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2869239897689409371
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3788637206392199132}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.11823068, z: 0, w: 0.9929862}
+  m_LocalPosition: {x: 0, y: 3.33, z: -2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935315208528365973}
+  m_LocalEulerAnglesHint: {x: 0, y: 13.58, z: 0}
 --- !u!1 &3847811981564900100
 GameObject:
   m_ObjectHideFlags: 0

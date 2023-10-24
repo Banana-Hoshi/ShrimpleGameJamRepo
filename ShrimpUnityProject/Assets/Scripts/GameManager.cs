@@ -154,6 +154,6 @@ public class GameManager : MonoBehaviour
 		}
 		houseEffect.position = Vector3.down * 100f;
 		yield return new WaitForSeconds(10f);
-		SceneManager.LoadScene(0);
+		SceneManager.LoadSceneAsync(0);
 	}
 }

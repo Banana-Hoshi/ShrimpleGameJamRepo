@@ -22,6 +22,8 @@ public class PizzaManager : MonoBehaviour
     public int effect;
     public int ammo = 0;
     public Image[] ammoSprites;
+	public PizzaBox box;
+	public Transform[] pizzaBoxSpots;
     public Image topping;
     public GameObject regularCam, mushroomCam;
     public UniversalAdditionalCameraData cam;
@@ -81,6 +83,13 @@ public class PizzaManager : MonoBehaviour
         //do visual changes here
         if (newAmmo > ammo)
         {
+			if (ammo == 0) {
+				Instantiate(box, pizzaBoxSpots[0]).AddToBike();
+			}
+			if (newAmmo > 8 && ammo <= 8) {
+				pizzaBoxSpots[0].GetComponentInChildren<PizzaBox>()?.CloseLid();
+				Instantiate(box, pizzaBoxSpots[1]).AddToBike();
+			}
             for (int i = ammo; i < newAmmo; ++i)
             {
                 ammoSprites[i].enabled = true;
@@ -88,6 +97,13 @@ public class PizzaManager : MonoBehaviour
         }
         else if (newAmmo < ammo)
         {
+			if (newAmmo <= 8 && ammo > 8) {
+				pizzaBoxSpots[1].GetComponentInChildren<PizzaBox>()?.Eject();
+				pizzaBoxSpots[0].GetComponentInChildren<PizzaBox>()?.OpenLid();
+			}
+			if (newAmmo == 0) {
+				pizzaBoxSpots[0].GetComponentInChildren<PizzaBox>()?.Eject();
+			}
             for (int i = ammo - 1; i >= newAmmo; --i)
             {
                 ammoSprites[i].enabled = false;

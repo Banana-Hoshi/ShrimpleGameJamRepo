@@ -11,7 +11,7 @@ public class Main_Menu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadSceneAsync("GameScene");
+        SceneManager.LoadScene("GameScene");
     }
 
     public void QuitGame()
@@ -21,6 +21,6 @@ public class Main_Menu : MonoBehaviour
 
     public void SecretLevel()
     {
-        SceneManager.LoadSceneAsync("Secret");    
+        SceneManager.LoadScene("Secret");    
     }
 }
